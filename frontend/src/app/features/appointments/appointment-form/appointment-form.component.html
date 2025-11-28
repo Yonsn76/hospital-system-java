@@ -1,0 +1,68 @@
+<div class="appointment-form-container">
+    <h2>{{ isEditMode ? 'Edit Appointment' : 'Schedule Appointment' }}</h2>
+
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Patient</mat-label>
+                <mat-select formControlName="patientId">
+                    @for (patient of patients; track patient.id) {
+                    <mat-option [value]="patient.id">{{ patient.firstName }} {{ patient.lastName }}</mat-option>
+                    }
+                </mat-select>
+                @if (appointmentForm.get('patientId')?.hasError('required')) {
+                <mat-error>Patient is required</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Doctor</mat-label>
+                <mat-select formControlName="doctorId">
+                    @for (doctor of doctors; track doctor.id) {
+                    <mat-option [value]="doctor.id">Dr. {{ doctor.user.personalDetails.lastName }} ({{
+                        doctor.specialization }})</mat-option>
+                    }
+                </mat-select>
+                @if (appointmentForm.get('doctorId')?.hasError('required')) {
+                <mat-error>Doctor is required</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Date & Time</mat-label>
+                <input matInput type="datetime-local" formControlName="appointmentTime">
+                @if (appointmentForm.get('appointmentTime')?.hasError('required')) {
+                <mat-error>Date & Time is required</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                    @for (status of statuses; track status) {
+                    <mat-option [value]="status">{{ status }}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Reason</mat-label>
+                <textarea matInput formControlName="reason" rows="3"></textarea>
+                @if (appointmentForm.get('reason')?.hasError('required')) {
+                <mat-error>Reason is required</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="form-actions">
+            <button mat-button type="button" routerLink="/appointments">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="appointmentForm.invalid">
+                {{ isEditMode ? 'Update' : 'Schedule' }}
+            </button>
+        </div>
+    </form>
+</div>

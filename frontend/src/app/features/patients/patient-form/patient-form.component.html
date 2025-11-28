@@ -1,0 +1,72 @@
+<div class="patient-form-container">
+    <h2>{{ isEditMode ? 'Edit Patient' : 'New Patient' }}</h2>
+
+    <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" placeholder="First Name">
+                @if (patientForm.get('firstName')?.hasError('required')) {
+                <mat-error>First Name is required</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" placeholder="Last Name">
+                @if (patientForm.get('lastName')?.hasError('required')) {
+                <mat-error>Last Name is required</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                @if (patientForm.get('dateOfBirth')?.hasError('required')) {
+                <mat-error>Date of Birth is required</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+                    <mat-option value="Other">Other</mat-option>
+                </mat-select>
+                @if (patientForm.get('gender')?.hasError('required')) {
+                <mat-error>Gender is required</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Contact Number</mat-label>
+                <input matInput formControlName="contactNumber" placeholder="Contact Number">
+                @if (patientForm.get('contactNumber')?.hasError('required')) {
+                <mat-error>Contact Number is required</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="address" placeholder="Address">
+                @if (patientForm.get('address')?.hasError('required')) {
+                <mat-error>Address is required</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="form-actions">
+            <button mat-button type="button" routerLink="/patients">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="patientForm.invalid">
+                {{ isEditMode ? 'Update' : 'Create' }}
+            </button>
+        </div>
+    </form>
+</div>
