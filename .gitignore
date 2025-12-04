@@ -1,0 +1,17 @@
+# Kiro IDE
+.kiro/
+
+# VS Code
+.vscode/
+
+# Build outputs
+dist/
+build/
+out/
+target/
+
+# Node
+node_modules/
+
+# Logs
+*.log

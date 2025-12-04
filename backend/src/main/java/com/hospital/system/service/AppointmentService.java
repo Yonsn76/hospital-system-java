@@ -59,6 +59,53 @@ public class AppointmentService {
                 .collect(Collectors.toList());
     }
 
+    public List<AppointmentResponse> getAppointmentsByUserId(Long userId) {
+        Doctor doctor = doctorRepository.findByUserId(userId)
+                .orElseThrow(() -> new RuntimeException("Doctor not found for user"));
+        return getAppointmentsByDoctor(doctor.getId());
+    }
+
+    public AppointmentResponse getAppointmentById(Long id) {
+        Appointment appointment = appointmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Appointment not found"));
+        return mapToResponse(appointment);
+    }
+
+    public AppointmentResponse updateAppointment(Long id, AppointmentRequest request) {
+        Appointment appointment = appointmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Appointment not found"));
+        
+        if (request.getPatientId() != null) {
+            Patient patient = patientRepository.findById(request.getPatientId())
+                    .orElseThrow(() -> new RuntimeException("Patient not found"));
+            appointment.setPatient(patient);
+        }
+        
+        if (request.getDoctorId() != null) {
+            Doctor doctor = doctorRepository.findById(request.getDoctorId())
+                    .orElseThrow(() -> new RuntimeException("Doctor not found"));
+            appointment.setDoctor(doctor);
+        }
+        
+        if (request.getAppointmentTime() != null) {
+            appointment.setAppointmentTime(request.getAppointmentTime());
+        }
+        
+        if (request.getReason() != null) {
+            appointment.setReason(request.getReason());
+        }
+        
+        Appointment updatedAppointment = appointmentRepository.save(appointment);
+        return mapToResponse(updatedAppointment);
+    }
+
+    public void deleteAppointment(Long id) {
+        if (!appointmentRepository.existsById(id)) {
+            throw new RuntimeException("Appointment not found");
+        }
+        appointmentRepository.deleteById(id);
+    }
+
     public AppointmentResponse updateStatus(Long id, AppointmentStatus status) {
         Appointment appointment = appointmentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Appointment not found"));

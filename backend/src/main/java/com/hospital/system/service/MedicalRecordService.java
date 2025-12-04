@@ -52,6 +52,43 @@ public class MedicalRecordService {
                 .collect(Collectors.toList());
     }
 
+    public List<MedicalRecordResponse> getAllMedicalRecords() {
+        return medicalRecordRepository.findAll().stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
+    }
+
+    public MedicalRecordResponse getMedicalRecordById(Long id) {
+        MedicalRecord record = medicalRecordRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Medical record not found"));
+        return mapToResponse(record);
+    }
+
+    public MedicalRecordResponse updateMedicalRecord(Long id, MedicalRecordRequest request) {
+        MedicalRecord record = medicalRecordRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Medical record not found"));
+
+        if (request.getDiagnosis() != null) {
+            record.setDiagnosis(request.getDiagnosis());
+        }
+        if (request.getTreatment() != null) {
+            record.setTreatment(request.getTreatment());
+        }
+        if (request.getPrescription() != null) {
+            record.setPrescription(request.getPrescription());
+        }
+
+        MedicalRecord updatedRecord = medicalRecordRepository.save(record);
+        return mapToResponse(updatedRecord);
+    }
+
+    public void deleteMedicalRecord(Long id) {
+        if (!medicalRecordRepository.existsById(id)) {
+            throw new RuntimeException("Medical record not found");
+        }
+        medicalRecordRepository.deleteById(id);
+    }
+
     private MedicalRecordResponse mapToResponse(MedicalRecord record) {
         return MedicalRecordResponse.builder()
                 .id(record.getId())
