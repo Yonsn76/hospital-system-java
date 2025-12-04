@@ -1,8 +1,8 @@
 # Diagramas - Sistema Hospitalario
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Mermaid-Diagrams-ff69b4?style=for-the-badge&logo=mermaid" alt="Mermaid"/>
-  <img src="https://img.shields.io/badge/UML-Documentation-blue?style=for-the-badge" alt="UML"/>
+  <img src="https://img.shields.io/badge/Mermaid-Diagrams-FF3670?style=for-the-badge&logo=mermaid&logoColor=white" alt="Mermaid"/>
+  <img src="https://img.shields.io/badge/UML-Documentation-007ACC?style=for-the-badge" alt="UML"/>
 </p>
 
 ---
@@ -12,15 +12,15 @@
 - [Descripcion](#descripcion)
 - [Diagramas Disponibles](#diagramas-disponibles)
 - [Como Visualizar](#como-visualizar)
-- [Arquitectura del Sistema](#arquitectura-del-sistema)
-- [Modelo de Datos](#modelo-de-datos)
-- [Flujo de Autenticacion](#flujo-de-autenticacion)
+- [Resumen de Arquitectura](#resumen-de-arquitectura)
+- [Resumen del Modelo de Datos](#resumen-del-modelo-de-datos)
+- [Resumen de Autenticacion](#resumen-de-autenticacion)
 
 ---
 
 ## Descripcion
 
-Esta carpeta contiene los diagramas de documentacion tecnica del sistema hospitalario. Todos los diagramas estan escritos en formato Mermaid, lo que permite visualizarlos directamente en GitHub, GitLab o cualquier visor compatible.
+Esta carpeta contiene la documentacion tecnica del Sistema de Gestion Hospitalaria en formato de diagramas. Todos los diagramas estan escritos en sintaxis Mermaid, lo que permite visualizarlos directamente en GitHub, GitLab, VS Code o cualquier visor compatible.
 
 ---
 
@@ -28,34 +28,31 @@ Esta carpeta contiene los diagramas de documentacion tecnica del sistema hospita
 
 | Archivo | Tipo | Descripcion |
 |---------|------|-------------|
-| `architecture.md` | Diagrama de Componentes | Arquitectura general del sistema |
-| `er_diagram.md` | Diagrama ER | Modelo de base de datos |
-| `sequence_auth.md` | Diagrama de Secuencia | Flujo de autenticacion |
+| [architecture.md](architecture.md) | Diagrama de Componentes | Arquitectura general del sistema Electron + Spring Boot |
+| [er_diagram.md](er_diagram.md) | Diagrama ER | Modelo completo de base de datos (26 tablas) |
+| [sequence_auth.md](sequence_auth.md) | Diagrama de Secuencia | Flujos de autenticacion JWT |
 
 ---
 
 ## Como Visualizar
 
-### Opcion 1: GitHub/GitLab
+### GitHub / GitLab
 
-Los archivos `.md` con bloques Mermaid se renderizan automaticamente en GitHub y GitLab.
+Los archivos Markdown con bloques Mermaid se renderizan automaticamente en GitHub y GitLab. Simplemente navega al archivo y el diagrama se mostrara.
 
-### Opcion 2: VS Code
+### VS Code
 
-Instalar la extension "Markdown Preview Mermaid Support":
+1. Instalar la extension "Markdown Preview Mermaid Support"
+2. Abrir el archivo .md
+3. Presionar `Ctrl+Shift+V` para ver la preview
 
-1. Abrir VS Code
-2. Ir a Extensions (Ctrl+Shift+X)
-3. Buscar "Markdown Preview Mermaid Support"
-4. Instalar y reiniciar
+### Mermaid Live Editor
 
-### Opcion 3: Mermaid Live Editor
+1. Ir a [mermaid.live](https://mermaid.live)
+2. Copiar el contenido del bloque mermaid
+3. Pegar en el editor para visualizar y exportar
 
-1. Ir a https://mermaid.live
-2. Copiar el contenido del bloque ```mermaid```
-3. Pegar en el editor
-
-### Opcion 4: CLI
+### Linea de Comandos
 
 ```bash
 # Instalar mermaid-cli
@@ -65,159 +62,155 @@ npm install -g @mermaid-js/mermaid-cli
 mmdc -i architecture.md -o architecture.png
 
 # Generar imagen SVG
-mmdc -i architecture.md -o architecture.svg
+mmdc -i er_diagram.md -o er_diagram.svg
+
+# Generar PDF
+mmdc -i sequence_auth.md -o sequence_auth.pdf
 ```
 
 ---
 
-## Arquitectura del Sistema
+## Resumen de Arquitectura
 
-**Archivo**: `architecture.md`
-
-Muestra la arquitectura de alto nivel del sistema:
+### Stack Tecnologico
 
 ```
-+-------------------+     +-------------------+     +-------------------+
-|                   |     |                   |     |                   |
-|   Web Browser     |---->|   Angular App     |---->|  Spring Boot API  |
-|                   |     |   (Frontend)      |     |   (Backend)       |
-|                   |     |                   |     |                   |
-+-------------------+     +-------------------+     +--------+----------+
-                                                             |
-                                                             v
-                                                    +-------------------+
-                                                    |                   |
-                                                    |   PostgreSQL DB   |
-                                                    |                   |
-                                                    +-------------------+
+┌─────────────────────────────────────────────────────────────────┐
+│                         FRONTEND                                 │
+│  Electron 31 + React 18 + TypeScript + Redux + Ant Design       │
+└─────────────────────────────────────┬───────────────────────────┘
+                                      │ REST API (HTTP/JSON)
+┌─────────────────────────────────────┴───────────────────────────┐
+│                         BACKEND                                  │
+│  Spring Boot 3.2 + Spring Security + JWT + JPA/Hibernate        │
+└─────────────────────────────────────┬───────────────────────────┘
+                                      │ JDBC
+┌─────────────────────────────────────┴───────────────────────────┐
+│                       BASE DE DATOS                              │
+│                      PostgreSQL 15                               │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ### Capas del Sistema
 
-| Capa | Tecnologia | Responsabilidad |
-|------|------------|-----------------|
-| **Presentacion** | Angular 17 | Interfaz de usuario |
-| **API** | Spring Boot | Logica de negocio y REST endpoints |
-| **Seguridad** | Spring Security + JWT | Autenticacion y autorizacion |
-| **Persistencia** | JPA/Hibernate | Acceso a datos |
-| **Base de Datos** | PostgreSQL | Almacenamiento |
+| Capa | Componentes |
+|------|-------------|
+| Presentacion | Electron, React, Redux Toolkit, React Query, Ant Design |
+| API | Spring Boot Controllers, DTOs, Validaciones |
+| Negocio | Spring Services, Logica de dominio |
+| Seguridad | Spring Security, JWT Filter, BCrypt |
+| Persistencia | Spring Data JPA, Hibernate, Repositories |
+| Datos | PostgreSQL, Indices, Constraints |
+
+Ver diagrama completo en: [architecture.md](architecture.md)
 
 ---
 
-## Modelo de Datos
+## Resumen del Modelo de Datos
 
-**Archivo**: `er_diagram.md`
+### Entidades Principales (26 tablas)
 
-### Entidades Principales
+| Modulo | Tablas |
+|--------|--------|
+| Usuarios | users, doctors, module_permissions |
+| Pacientes | patients, clinical_histories, allergies, chronic_diseases |
+| Citas | appointments |
+| Triaje | triages, vital_signs |
+| Hospitalizacion | hospitalizations, beds, nursing_observations |
+| Clinico | medical_notes, prescriptions, prescription_items, lab_exams, lab_results, referrals |
+| Archivos | clinical_files, file_access_logs |
 
-| Entidad | Descripcion | Relaciones |
-|---------|-------------|------------|
-| **USERS** | Usuarios del sistema | 1:1 con DOCTORS |
-| **DOCTORS** | Informacion de medicos | N:M con APPOINTMENTS, 1:N con MEDICAL_RECORDS |
-| **PATIENTS** | Datos de pacientes | 1:N con APPOINTMENTS, 1:N con MEDICAL_RECORDS |
-| **APPOINTMENTS** | Citas medicas | N:1 con PATIENTS, N:1 con DOCTORS |
-| **MEDICAL_RECORDS** | Historial medico | N:1 con PATIENTS, N:1 con DOCTORS |
-| **RESOURCES** | Recursos hospitalarios | Independiente |
-
-### Cardinalidades
+### Relaciones Clave
 
 ```
-USERS ----||--o| DOCTORS        (Un usuario puede ser un doctor)
-PATIENTS ----||--o{ APPOINTMENTS (Un paciente tiene muchas citas)
-DOCTORS ----||--o{ APPOINTMENTS  (Un doctor atiende muchas citas)
-PATIENTS ----||--o{ MEDICAL_RECORDS (Un paciente tiene muchos registros)
-DOCTORS ----||--o{ MEDICAL_RECORDS  (Un doctor crea muchos registros)
+USERS ----||--o| DOCTORS           (1:1)
+PATIENTS ----||--o{ APPOINTMENTS   (1:N)
+DOCTORS ----||--o{ APPOINTMENTS    (1:N)
+PATIENTS ----||--|| CLINICAL_HISTORIES (1:1)
+PATIENTS ----||--o{ ALLERGIES      (1:N)
+HOSPITALIZATIONS }o--|| BEDS       (N:1)
+PRESCRIPTIONS ----||--o{ PRESCRIPTION_ITEMS (1:N)
+LAB_EXAMS ----||--o{ LAB_RESULTS   (1:N)
 ```
 
----
-
-## Flujo de Autenticacion
-
-**Archivo**: `sequence_auth.md`
-
-### Proceso de Login
-
-1. Usuario ingresa credenciales en el formulario
-2. Angular envia POST a `/api/auth/login`
-3. Backend valida credenciales contra la base de datos
-4. Si son validas, genera token JWT con el rol del usuario
-5. Frontend almacena el token en LocalStorage
-6. Usuario es redirigido al Dashboard
-
-### Proceso de Peticiones Autenticadas
-
-1. Interceptor de Angular agrega header `Authorization: Bearer <token>`
-2. JwtAuthenticationFilter valida el token
-3. Extrae el rol del usuario del token
-4. SecurityConfig verifica permisos con @PreAuthorize
-5. Si tiene permisos, procesa la peticion
-6. Si no tiene permisos, retorna 403 Forbidden
-
-### Estados de Error
-
-| Codigo | Situacion | Accion del Frontend |
-|--------|-----------|---------------------|
-| 401 | Token invalido/expirado | Redirigir a login |
-| 403 | Sin permisos | Mostrar mensaje de error |
-| 404 | Recurso no encontrado | Mostrar pagina 404 |
+Ver diagrama completo en: [er_diagram.md](er_diagram.md)
 
 ---
 
-## Convenciones de Diagramas
+## Resumen de Autenticacion
 
-### Colores por Tipo
+### Flujo de Login
 
-| Elemento | Color | Uso |
-|----------|-------|-----|
-| Componentes Frontend | Azul | Angular, componentes UI |
-| Componentes Backend | Verde | Spring Boot, servicios |
-| Base de Datos | Naranja | PostgreSQL, entidades |
-| Seguridad | Rojo | JWT, autenticacion |
+```
+Usuario → React → API Service → AuthController → AuthService → DB
+                                      ↓
+                                   JwtUtil
+                                      ↓
+                              JWT Token (24h)
+                                      ↓
+                              Redux Store
+                                      ↓
+                              localStorage
+```
+
+### Flujo de Peticion Autenticada
+
+```
+React → HTTP Interceptor → JwtAuthFilter → JwtUtil → SecurityContext
+                                                          ↓
+                                                    @PreAuthorize
+                                                          ↓
+                                                     Controller
+                                                          ↓
+                                                      Service
+                                                          ↓
+                                                     Repository
+                                                          ↓
+                                                     PostgreSQL
+```
+
+### Roles del Sistema
+
+| Rol | Acceso |
+|-----|--------|
+| ADMIN | Acceso total |
+| DOCTOR | Pacientes, citas, notas, recetas, reportes |
+| NURSE | Triaje, signos vitales, observaciones |
+| RECEPTIONIST | Pacientes, citas, admisiones |
+| LAB_TECH | Examenes, resultados |
+
+Ver diagrama completo en: [sequence_auth.md](sequence_auth.md)
+
+---
+
+## Convenciones
+
+### Colores en Diagramas
+
+| Color | Uso |
+|-------|-----|
+| Azul | Componentes Frontend |
+| Verde | Componentes Backend |
+| Naranja | Base de Datos |
+| Rojo | Seguridad |
+| Gris | Infraestructura |
 
 ### Nomenclatura
 
-- **PascalCase**: Nombres de entidades y componentes
-- **camelCase**: Metodos y propiedades
-- **UPPER_CASE**: Constantes y enums
-
----
-
-## Agregar Nuevos Diagramas
-
-Para agregar un nuevo diagrama:
-
-1. Crear archivo `.md` en esta carpeta
-2. Usar sintaxis Mermaid dentro de bloques de codigo
-3. Documentar el proposito del diagrama
-4. Actualizar este README con la referencia
-
-### Plantilla
-
-```markdown
-# Nombre del Diagrama
-
-## Descripcion
-
-Breve descripcion del diagrama.
-
-## Diagrama
-
-\`\`\`mermaid
-graph TD
-    A[Inicio] --> B[Proceso]
-    B --> C[Fin]
-\`\`\`
-
-## Notas
-
-Notas adicionales sobre el diagrama.
-```
+| Tipo | Convencion | Ejemplo |
+|------|------------|---------|
+| Entidades | PascalCase | Patient, MedicalNote |
+| Tablas | snake_case | patients, medical_notes |
+| Endpoints | kebab-case | /api/medical-notes |
+| Componentes | PascalCase | PatientList, LoginForm |
 
 ---
 
 ## Referencias
 
-- [Documentacion de Mermaid](https://mermaid.js.org/intro/)
-- [Sintaxis de Diagramas ER](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)
-- [Sintaxis de Diagramas de Secuencia](https://mermaid.js.org/syntax/sequenceDiagram.html)
-- [Sintaxis de Flowcharts](https://mermaid.js.org/syntax/flowchart.html)
+| Recurso | URL |
+|---------|-----|
+| Documentacion Mermaid | [mermaid.js.org](https://mermaid.js.org/) |
+| Diagramas ER | [mermaid.js.org/syntax/entityRelationshipDiagram](https://mermaid.js.org/syntax/entityRelationshipDiagram.html) |
+| Diagramas de Secuencia | [mermaid.js.org/syntax/sequenceDiagram](https://mermaid.js.org/syntax/sequenceDiagram.html) |
+| Flowcharts | [mermaid.js.org/syntax/flowchart](https://mermaid.js.org/syntax/flowchart.html) |
