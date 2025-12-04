@@ -1,10 +1,17 @@
-# Backend - Sistema Hospitalario
+# Sistema Hospitalario - Backend API
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Spring%20Boot-3.2.0-brightgreen?style=for-the-badge&logo=springboot" alt="Spring Boot"/>
-  <img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk" alt="Java"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-15-blue?style=for-the-badge&logo=postgresql" alt="PostgreSQL"/>
-  <img src="https://img.shields.io/badge/JWT-Security-red?style=for-the-badge&logo=jsonwebtokens" alt="JWT"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg" alt="Spring" width="80" height="80"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="80" height="80"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="80" height="80"/>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Spring%20Boot-3.2.3-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot"/>
+  <img src="https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-15-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+  <img src="https://img.shields.io/badge/JWT-Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT"/>
+  <img src="https://img.shields.io/badge/Maven-3.8+-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" alt="Maven"/>
 </p>
 
 <p align="center">
@@ -17,150 +24,342 @@
 
 ## Tabla de Contenidos
 
-- [Descripcion](#descripcion)
-- [Requisitos Previos](#requisitos-previos)
-- [Configuracion](#configuracion)
-- [Ejecucion](#ejecucion)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [API Endpoints](#api-endpoints)
-- [Seguridad y Roles](#seguridad-y-roles)
-- [Base de Datos](#base-de-datos)
+1. [Descripcion General](#descripcion-general)
+2. [Arquitectura del Sistema](#arquitectura-del-sistema)
+3. [Requisitos Previos](#requisitos-previos)
+4. [Instalacion y Configuracion](#instalacion-y-configuracion)
+5. [Estructura del Proyecto](#estructura-del-proyecto)
+6. [Modulos del Sistema](#modulos-del-sistema)
+7. [API Endpoints](#api-endpoints)
+8. [Seguridad y Autenticacion](#seguridad-y-autenticacion)
+9. [Base de Datos](#base-de-datos)
+10. [Exportacion de Reportes](#exportacion-de-reportes)
+11. [Comandos Utiles](#comandos-utiles)
 
 ---
 
-## Descripcion
+## Descripcion General
 
-API REST desarrollada con Spring Boot para la gestion de un sistema hospitalario. Incluye autenticacion JWT, control de acceso basado en roles (RBAC) y operaciones CRUD para pacientes, citas, registros medicos y recursos.
+API REST empresarial desarrollada con Spring Boot para la gestion integral de un sistema hospitalario. El sistema proporciona funcionalidades completas para la administracion de pacientes, citas medicas, hospitalizaciones, triaje, recetas, examenes de laboratorio, notas medicas y reportes clinicos.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/patternfly/patternfly-design/master/pattern-library/images/hospital-icon.png" alt="Hospital" width="120"/>
+</p>
+
+### Caracteristicas Principales
+
+| Caracteristica | Descripcion |
+|----------------|-------------|
+| Autenticacion JWT | Tokens seguros con expiracion configurable |
+| Control de Acceso RBAC | Roles y permisos granulares por modulo |
+| Gestion Clinica Completa | Pacientes, citas, hospitalizaciones, triaje |
+| Expediente Electronico | Historial clinico, notas medicas, evoluciones |
+| Laboratorio | Solicitud y seguimiento de examenes |
+| Recetas Medicas | Prescripciones con control de estado |
+| Reportes | Exportacion a PDF y Excel |
+| Auditoria | Registro de accesos a expedientes |
+
+---
+
+## Arquitectura del Sistema
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        CLIENTE (Frontend)                        │
+│                    Electron + React + TypeScript                 │
+└─────────────────────────────────┬───────────────────────────────┘
+                                  │ HTTP/REST
+                                  ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      SPRING BOOT APPLICATION                     │
+├─────────────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
+│  │ Controllers │  │  Security   │  │     JWT Filter          │  │
+│  │   (REST)    │  │   Config    │  │                         │  │
+│  └──────┬──────┘  └──────┬──────┘  └────────────┬────────────┘  │
+│         │                │                      │                │
+│         ▼                ▼                      ▼                │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │                      SERVICE LAYER                          ││
+│  │  (Logica de Negocio, Validaciones, Transformaciones)        ││
+│  └──────────────────────────┬──────────────────────────────────┘│
+│                             │                                    │
+│                             ▼                                    │
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │                    REPOSITORY LAYER                         ││
+│  │              (Spring Data JPA / Hibernate)                  ││
+│  └──────────────────────────┬──────────────────────────────────┘│
+└─────────────────────────────┼───────────────────────────────────┘
+                              │ JDBC
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                        POSTGRESQL DATABASE                       │
+│                         (hospital_db)                            │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
 ## Requisitos Previos
 
-| Requisito | Version |
-|-----------|---------|
-| Java JDK | 17+ |
-| Maven | 3.8+ |
-| PostgreSQL | 15+ |
+| Componente | Version Minima | Recomendada |
+|------------|----------------|-------------|
+| Java JDK | 17 | 17 LTS |
+| Maven | 3.8 | 3.9+ |
+| PostgreSQL | 14 | 15+ |
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg" alt="Java" width="60"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/maven/maven-original.svg" alt="Maven" width="60"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="PostgreSQL" width="60"/>
+</p>
 
 ---
 
-## Configuracion
+## Instalacion y Configuracion
 
-### 1. Base de Datos
+### 1. Clonar el Repositorio
 
-Crear la base de datos en PostgreSQL:
+```bash
+git clone https://github.com/Yonsn76/hospital-system-java.git
+cd hospital-system-java/backend
+```
+
+### 2. Crear Base de Datos
 
 ```sql
 CREATE DATABASE hospital_db;
 ```
 
-### 2. Variables de Entorno
+Ejecutar los scripts de esquema:
+
+```bash
+psql -U postgres -d hospital_db -f database/schema.sql
+psql -U postgres -d hospital_db -f database/clinical_schema.sql
+psql -U postgres -d hospital_db -f database/seed_data.sql
+```
+
+### 3. Configurar Variables
 
 Editar `src/main/resources/application.properties`:
 
 ```properties
-# Configuracion de Base de Datos
+# Servidor
+server.port=2026
+
+# Base de Datos
 spring.datasource.url=jdbc:postgresql://localhost:5432/hospital_db
-spring.datasource.username=tu_usuario
+spring.datasource.username=postgres
 spring.datasource.password=tu_password
 
-# JWT Secret (cambiar en produccion)
-jwt.secret=tu_clave_secreta_muy_larga_y_segura
+# JWT (CAMBIAR EN PRODUCCION)
+jwt.secret=tu_clave_secreta_muy_larga_y_segura_de_256_bits
 jwt.expiration=86400000
 ```
 
----
-
-## Ejecucion
-
-### Usando Maven
+### 4. Compilar y Ejecutar
 
 ```bash
-# Compilar el proyecto
+# Compilar
 mvn clean install
 
-# Ejecutar la aplicacion
+# Ejecutar
 mvn spring-boot:run
 ```
 
-### Usando JAR
-
-```bash
-# Generar JAR
-mvn clean package -DskipTests
-
-# Ejecutar JAR
-java -jar target/hospital-system-0.0.1-SNAPSHOT.jar
-```
-
-La API estara disponible en: `http://localhost:8080`
+La API estara disponible en: `http://localhost:2026`
 
 ---
 
 ## Estructura del Proyecto
 
 ```
-src/main/java/com/hospital/system/
-|
-|-- config/                    # Configuraciones de Spring
-|   |-- ApplicationConfig.java # Configuracion general de beans
-|   |-- DataInitializer.java   # Datos iniciales de prueba
-|   |-- SecurityConfig.java    # Configuracion de Spring Security
-|
-|-- controller/                # Controladores REST
-|   |-- AppointmentController.java
-|   |-- AuthController.java
-|   |-- MedicalRecordController.java
-|   |-- PatientController.java
-|   |-- ResourceController.java
-|
-|-- dto/                       # Data Transfer Objects
-|   |-- AppointmentRequest.java
-|   |-- AppointmentResponse.java
-|   |-- AuthRequest.java
-|   |-- AuthResponse.java
-|   |-- MedicalRecordRequest.java
-|   |-- MedicalRecordResponse.java
-|   |-- PatientRequest.java
-|   |-- PatientResponse.java
-|   |-- RegisterRequest.java
-|   |-- ResourceRequest.java
-|   |-- ResourceResponse.java
-|
-|-- model/                     # Entidades JPA
-|   |-- Appointment.java
-|   |-- AppointmentStatus.java
-|   |-- Doctor.java
-|   |-- MedicalRecord.java
-|   |-- Patient.java
-|   |-- Resource.java
-|   |-- ResourceStatus.java
-|   |-- ResourceType.java
-|   |-- Role.java
-|   |-- User.java
-|
-|-- repository/                # Repositorios JPA
-|   |-- AppointmentRepository.java
-|   |-- DoctorRepository.java
-|   |-- MedicalRecordRepository.java
-|   |-- PatientRepository.java
-|   |-- ResourceRepository.java
-|   |-- UserRepository.java
-|
-|-- security/                  # Seguridad JWT
-|   |-- JwtAuthenticationFilter.java
-|   |-- JwtUtil.java
-|
-|-- service/                   # Logica de negocio
-|   |-- AppointmentService.java
-|   |-- AuthService.java
-|   |-- CustomUserDetailsService.java
-|   |-- MedicalRecordService.java
-|   |-- PatientService.java
-|   |-- ResourceService.java
-|
-|-- HospitalSystemApplication.java  # Clase principal
+backend/
+├── database/
+│   ├── schema.sql              # Esquema principal
+│   ├── clinical_schema.sql     # Esquema clinico extendido
+│   └── seed_data.sql           # Datos de prueba
+│
+├── src/main/java/com/hospital/system/
+│   │
+│   ├── config/                 # Configuraciones
+│   │   ├── ApplicationConfig.java
+│   │   ├── DataInitializer.java
+│   │   └── SecurityConfig.java
+│   │
+│   ├── controller/             # Controladores REST (21)
+│   │   ├── AuthController.java
+│   │   ├── PatientController.java
+│   │   ├── AppointmentController.java
+│   │   ├── DoctorController.java
+│   │   ├── TriageController.java
+│   │   ├── HospitalizationController.java
+│   │   ├── PrescriptionController.java
+│   │   ├── LabExamController.java
+│   │   ├── MedicalNoteController.java
+│   │   ├── ClinicalHistoryController.java
+│   │   ├── ClinicalFileController.java
+│   │   ├── NursingController.java
+│   │   ├── ReferralController.java
+│   │   ├── ReportController.java
+│   │   ├── UserController.java
+│   │   ├── ModulePermissionController.java
+│   │   └── ...
+│   │
+│   ├── dto/                    # Data Transfer Objects (64)
+│   │   ├── Auth (Request/Response)
+│   │   ├── Patient (Request/Response)
+│   │   ├── Appointment (Request/Response)
+│   │   ├── Triage (Request/Response)
+│   │   ├── Hospitalization (Request/Response)
+│   │   ├── Prescription (Request/Response)
+│   │   ├── LabExam (Request/Response)
+│   │   ├── MedicalNote (Request/Response)
+│   │   ├── ClinicalHistory (Request/Response)
+│   │   ├── VitalSigns (Request/Response)
+│   │   ├── Referral (Request/Response)
+│   │   ├── Report DTOs
+│   │   └── ...
+│   │
+│   ├── model/                  # Entidades JPA (45)
+│   │   ├── User.java
+│   │   ├── Doctor.java
+│   │   ├── Patient.java
+│   │   ├── Appointment.java
+│   │   ├── Triage.java
+│   │   ├── Hospitalization.java
+│   │   ├── Bed.java
+│   │   ├── Prescription.java
+│   │   ├── LabExam.java
+│   │   ├── MedicalNote.java
+│   │   ├── ClinicalHistory.java
+│   │   ├── ClinicalFile.java
+│   │   ├── VitalSigns.java
+│   │   ├── Allergy.java
+│   │   ├── ChronicDisease.java
+│   │   ├── NursingObservation.java
+│   │   ├── Referral.java
+│   │   ├── Enums (Status, Priority, etc.)
+│   │   └── ...
+│   │
+│   ├── repository/             # Repositorios JPA (26)
+│   │   └── [Entidad]Repository.java
+│   │
+│   ├── security/               # Seguridad JWT
+│   │   ├── JwtAuthenticationFilter.java
+│   │   └── JwtUtil.java
+│   │
+│   ├── service/                # Servicios (24)
+│   │   ├── AuthService.java
+│   │   ├── PatientService.java
+│   │   ├── AppointmentService.java
+│   │   ├── TriageService.java
+│   │   ├── HospitalizationService.java
+│   │   ├── BedService.java
+│   │   ├── PrescriptionService.java
+│   │   ├── LabExamService.java
+│   │   ├── MedicalNoteService.java
+│   │   ├── ClinicalHistoryService.java
+│   │   ├── ClinicalFileService.java
+│   │   ├── VitalSignsService.java
+│   │   ├── AllergyService.java
+│   │   ├── ChronicDiseaseService.java
+│   │   ├── NursingObservationService.java
+│   │   ├── ReferralService.java
+│   │   ├── ReportService.java
+│   │   ├── ReportExportService.java
+│   │   ├── FileAccessLogService.java
+│   │   └── ...
+│   │
+│   └── HospitalSystemApplication.java
+│
+├── src/main/resources/
+│   └── application.properties
+│
+└── pom.xml
 ```
+
+---
+
+## Modulos del Sistema
+
+### Gestion de Pacientes
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Registro | Alta de pacientes con datos demograficos |
+| Busqueda | Por nombre, documento, telefono |
+| Historial | Acceso al expediente clinico completo |
+
+### Citas Medicas
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Programacion | Agendar citas con doctores |
+| Estados | SCHEDULED, CONFIRMED, IN_PROGRESS, COMPLETED, CANCELLED |
+| Filtros | Por doctor, paciente, fecha, estado |
+
+### Triaje
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Clasificacion | Prioridad por gravedad (RESUSCITATION, EMERGENCY, URGENT, LESS_URGENT, NON_URGENT) |
+| Signos Vitales | Registro de presion, temperatura, pulso, etc. |
+| Cola de Atencion | Ordenamiento por prioridad |
+
+### Hospitalizacion
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Ingreso | Admision de pacientes |
+| Camas | Gestion de disponibilidad y asignacion |
+| Transferencias | Movimiento entre areas |
+| Alta | Registro de egreso con tipo de alta |
+
+### Recetas Medicas
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Prescripcion | Medicamentos con dosis e instrucciones |
+| Estados | ACTIVE, DISPENSED, CANCELLED, EXPIRED |
+| Impresion | Formato para farmacia |
+
+### Laboratorio
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Solicitud | Ordenes de examenes |
+| Prioridad | ROUTINE, URGENT, STAT |
+| Resultados | Carga y consulta de resultados |
+
+### Notas Medicas
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Tipos | Consulta, evolucion, interconsulta, egreso |
+| Versionado | Historial de modificaciones |
+| Firma | Registro del medico responsable |
+
+### Expediente Clinico
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Historial | Antecedentes, alergias, enfermedades cronicas |
+| Archivos | Documentos adjuntos (imagenes, PDFs) |
+| Auditoria | Log de accesos al expediente |
+
+### Enfermeria
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Observaciones | Notas de enfermeria |
+| Signos Vitales | Monitoreo periodico |
+| Medicacion | Administracion de medicamentos |
+
+### Referencias
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Interconsulta | Derivacion a especialistas |
+| Externa | Referencia a otros centros |
+| Seguimiento | Estados y respuestas |
+
+### Reportes
+| Funcionalidad | Descripcion |
+|---------------|-------------|
+| Estadisticas | Metricas clinicas y operativas |
+| Productividad | Rendimiento por medico |
+| Exportacion | PDF y Excel |
 
 ---
 
@@ -173,109 +372,331 @@ src/main/java/com/hospital/system/
 | POST | `/api/auth/login` | Iniciar sesion |
 | POST | `/api/auth/register` | Registrar usuario |
 
-### Pacientes
+### Pacientes `/api/patients`
 
-| Metodo | Endpoint | Roles Permitidos |
-|--------|----------|------------------|
-| GET | `/api/patients` | ADMIN, RECEPTIONIST, NURSE |
-| GET | `/api/patients/{id}` | ADMIN, RECEPTIONIST, NURSE |
-| POST | `/api/patients` | ADMIN, RECEPTIONIST |
-| PUT | `/api/patients/{id}` | ADMIN, RECEPTIONIST |
-| DELETE | `/api/patients/{id}` | ADMIN |
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/` | Listar todos |
+| GET | `/{id}` | Obtener por ID |
+| GET | `/search?query=` | Buscar pacientes |
+| POST | `/` | Crear paciente |
+| PUT | `/{id}` | Actualizar paciente |
+| DELETE | `/{id}` | Eliminar paciente |
 
-### Citas
+### Citas `/api/appointments`
 
-| Metodo | Endpoint | Roles Permitidos |
-|--------|----------|------------------|
-| GET | `/api/appointments` | ADMIN, NURSE, RECEPTIONIST |
-| GET | `/api/appointments/{id}` | ADMIN, DOCTOR, NURSE, RECEPTIONIST |
-| GET | `/api/appointments/doctor/{id}` | ADMIN, DOCTOR |
-| GET | `/api/appointments/patient/{id}` | ADMIN, NURSE, RECEPTIONIST |
-| POST | `/api/appointments` | ADMIN, RECEPTIONIST |
-| PUT | `/api/appointments/{id}` | ADMIN, RECEPTIONIST |
-| PATCH | `/api/appointments/{id}/status` | ADMIN, DOCTOR, RECEPTIONIST |
-| DELETE | `/api/appointments/{id}` | ADMIN |
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/` | Listar todas |
+| GET | `/{id}` | Obtener por ID |
+| GET | `/doctor/{id}` | Por doctor |
+| GET | `/patient/{id}` | Por paciente |
+| GET | `/date/{date}` | Por fecha |
+| POST | `/` | Crear cita |
+| PUT | `/{id}` | Actualizar cita |
+| PATCH | `/{id}/status` | Cambiar estado |
+| DELETE | `/{id}` | Cancelar cita |
 
-### Registros Medicos
+### Triaje `/api/triage`
 
-| Metodo | Endpoint | Roles Permitidos |
-|--------|----------|------------------|
-| GET | `/api/medical-records/patient/{id}` | ADMIN, DOCTOR, NURSE |
-| GET | `/api/medical-records/doctor/{id}` | ADMIN, DOCTOR |
-| POST | `/api/medical-records` | ADMIN, DOCTOR |
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/` | Listar todos |
+| GET | `/{id}` | Obtener por ID |
+| GET | `/queue` | Cola de atencion |
+| GET | `/patient/{id}` | Por paciente |
+| POST | `/` | Crear triaje |
+| PUT | `/{id}` | Actualizar |
+| PATCH | `/{id}/priority` | Cambiar prioridad |
+| PATCH | `/{id}/status` | Cambiar estado |
 
-### Recursos
+### Hospitalizacion `/api/hospitalizations`
 
-| Metodo | Endpoint | Roles Permitidos |
-|--------|----------|------------------|
-| GET | `/api/resources` | ADMIN |
-| GET | `/api/resources/type/{type}` | ADMIN |
-| POST | `/api/resources` | ADMIN |
-| PATCH | `/api/resources/{id}/status` | ADMIN |
-| DELETE | `/api/resources/{id}` | ADMIN |
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/` | Listar activas |
+| GET | `/{id}` | Obtener por ID |
+| GET | `/patient/{id}` | Por paciente |
+| POST | `/` | Ingresar paciente |
+| POST | `/{id}/discharge` | Dar de alta |
+| POST | `/{id}/transfer` | Transferir cama |
+
+### Camas `/api/beds`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/` | Listar todas |
+| GET | `/available` | Disponibles |
+| GET | `/area/{area}` | Por area |
+| POST | `/` | Crear cama |
+| PATCH | `/{id}/status` | Cambiar estado |
+
+### Recetas `/api/prescriptions`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/` | Listar todas |
+| GET | `/{id}` | Obtener por ID |
+| GET | `/patient/{id}` | Por paciente |
+| GET | `/{id}/print` | Formato impresion |
+| POST | `/` | Crear receta |
+| PATCH | `/{id}/status` | Cambiar estado |
+
+### Laboratorio `/api/lab-exams`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/` | Listar todos |
+| GET | `/{id}` | Obtener por ID |
+| GET | `/patient/{id}` | Por paciente |
+| GET | `/pending` | Pendientes |
+| POST | `/` | Solicitar examen |
+| POST | `/{id}/results` | Cargar resultados |
+| PATCH | `/{id}/status` | Cambiar estado |
+
+### Notas Medicas `/api/medical-notes`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/` | Listar todas |
+| GET | `/{id}` | Obtener por ID |
+| GET | `/patient/{id}` | Por paciente |
+| GET | `/{id}/versions` | Historial versiones |
+| POST | `/` | Crear nota |
+| PUT | `/{id}` | Actualizar nota |
+
+### Historial Clinico `/api/clinical-history`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/patient/{id}` | Historial completo |
+| POST | `/patient/{id}` | Crear/actualizar |
+| POST | `/patient/{id}/allergies` | Agregar alergia |
+| POST | `/patient/{id}/diseases` | Agregar enfermedad |
+| DELETE | `/allergies/{id}` | Eliminar alergia |
+| DELETE | `/diseases/{id}` | Eliminar enfermedad |
+
+### Expediente Clinico `/api/clinical-files`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/patient/{id}` | Archivos del paciente |
+| GET | `/{id}` | Obtener archivo |
+| GET | `/{id}/access-log` | Log de accesos |
+| POST | `/` | Subir archivo |
+| DELETE | `/{id}` | Eliminar archivo |
+
+### Enfermeria `/api/nursing`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/observations/patient/{id}` | Observaciones |
+| GET | `/vital-signs/patient/{id}` | Signos vitales |
+| POST | `/observations` | Crear observacion |
+| POST | `/vital-signs` | Registrar signos |
+
+### Referencias `/api/referrals`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/` | Listar todas |
+| GET | `/{id}` | Obtener por ID |
+| GET | `/patient/{id}` | Por paciente |
+| POST | `/` | Crear referencia |
+| PATCH | `/{id}/status` | Actualizar estado |
+
+### Reportes `/api/reports`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/statistics` | Estadisticas generales |
+| GET | `/attendance` | Reporte de atenciones |
+| GET | `/productivity` | Productividad medica |
+| GET | `/frequent-patients` | Pacientes frecuentes |
+| GET | `/export/pdf` | Exportar a PDF |
+| GET | `/export/excel` | Exportar a Excel |
+
+### Usuarios `/api/users`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/` | Listar usuarios |
+| GET | `/{id}` | Obtener por ID |
+| PUT | `/{id}` | Actualizar usuario |
+| DELETE | `/{id}` | Eliminar usuario |
+
+### Permisos `/api/permissions`
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | `/role/{role}` | Permisos por rol |
+| POST | `/` | Asignar permiso |
+| DELETE | `/{id}` | Revocar permiso |
 
 ---
 
-## Seguridad y Roles
+## Seguridad y Autenticacion
 
-El sistema implementa RBAC (Role-Based Access Control) con 4 roles:
+### Roles del Sistema
 
-| Rol | Descripcion |
-|-----|-------------|
-| **ADMIN** | Acceso completo a todas las funcionalidades |
-| **DOCTOR** | Gestiona sus citas y registros medicos |
-| **NURSE** | Visualiza citas y pacientes (solo lectura) |
-| **RECEPTIONIST** | Gestiona pacientes y citas |
+| Rol | Descripcion | Nivel de Acceso |
+|-----|-------------|-----------------|
+| ADMIN | Administrador del sistema | Acceso total |
+| DOCTOR | Medico | Pacientes, citas, notas, recetas |
+| NURSE | Enfermera | Triaje, signos vitales, observaciones |
+| RECEPTIONIST | Recepcionista | Pacientes, citas, admisiones |
+| LAB_TECH | Tecnico laboratorio | Examenes, resultados |
 
 ### Flujo de Autenticacion
 
-1. El usuario envia credenciales a `/api/auth/login`
-2. El servidor valida y genera un token JWT
-3. El cliente incluye el token en el header `Authorization: Bearer <token>`
-4. El filtro JWT valida el token y extrae el rol del usuario
-5. Las anotaciones `@PreAuthorize` verifican los permisos
+```
+┌──────────┐         ┌──────────┐         ┌──────────┐
+│  Cliente │         │   API    │         │   JWT    │
+└────┬─────┘         └────┬─────┘         └────┬─────┘
+     │                    │                    │
+     │  POST /auth/login  │                    │
+     │  {user, password}  │                    │
+     │───────────────────>│                    │
+     │                    │  Validar           │
+     │                    │  credenciales      │
+     │                    │───────────────────>│
+     │                    │                    │
+     │                    │  Generar Token     │
+     │                    │<───────────────────│
+     │                    │                    │
+     │  {token, role}     │                    │
+     │<───────────────────│                    │
+     │                    │                    │
+     │  GET /api/patients │                    │
+     │  Authorization:    │                    │
+     │  Bearer <token>    │                    │
+     │───────────────────>│                    │
+     │                    │  Validar Token     │
+     │                    │───────────────────>│
+     │                    │                    │
+     │                    │  Token valido      │
+     │                    │<───────────────────│
+     │                    │                    │
+     │  [patients]        │                    │
+     │<───────────────────│                    │
+     │                    │                    │
+```
+
+### Configuracion JWT
+
+```properties
+jwt.secret=clave_secreta_256_bits
+jwt.expiration=86400000  # 24 horas en ms
+```
 
 ---
 
 ## Base de Datos
 
-### Diagrama ER
+### Diagrama Entidad-Relacion
 
-Ver el diagrama completo en: `../diagrams/er_diagram.md`
+Ver diagrama completo en: `../diagrams/er_diagram.md`
 
 ### Tablas Principales
 
-- **users** - Usuarios del sistema
-- **doctors** - Informacion de doctores
-- **patients** - Datos de pacientes
-- **appointments** - Citas medicas
-- **medical_records** - Registros medicos
-- **resources** - Recursos hospitalarios
+| Tabla | Descripcion |
+|-------|-------------|
+| users | Usuarios del sistema |
+| doctors | Informacion de medicos |
+| patients | Datos de pacientes |
+| appointments | Citas medicas |
+| triages | Registros de triaje |
+| hospitalizations | Ingresos hospitalarios |
+| beds | Camas disponibles |
+| prescriptions | Recetas medicas |
+| prescription_items | Items de receta |
+| lab_exams | Examenes de laboratorio |
+| lab_results | Resultados de examenes |
+| medical_notes | Notas medicas |
+| medical_note_versions | Versiones de notas |
+| clinical_histories | Historiales clinicos |
+| clinical_files | Archivos clinicos |
+| allergies | Alergias de pacientes |
+| chronic_diseases | Enfermedades cronicas |
+| vital_signs | Signos vitales |
+| nursing_observations | Observaciones enfermeria |
+| referrals | Referencias medicas |
+| file_access_logs | Auditoria de accesos |
+| module_permissions | Permisos por modulo |
 
 ---
 
-## Notas Importantes
+## Exportacion de Reportes
 
-> **Produccion**: Cambiar `jwt.secret` por una clave segura y configurar HTTPS.
+### Dependencias
 
-> **Base de Datos**: El modo `ddl-auto=update` crea/actualiza tablas automaticamente. En produccion usar `validate` o migraciones.
+```xml
+<!-- PDF - iText 7 -->
+<dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>itext7-core</artifactId>
+    <version>7.2.5</version>
+</dependency>
 
-> **CORS**: Configurado para permitir peticiones desde `http://localhost:4200` (Angular).
+<!-- Excel - Apache POI -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.2.5</version>
+</dependency>
+```
+
+### Formatos Disponibles
+
+| Formato | Endpoint | Content-Type |
+|---------|----------|--------------|
+| PDF | `/api/reports/export/pdf` | application/pdf |
+| Excel | `/api/reports/export/excel` | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet |
 
 ---
 
 ## Comandos Utiles
 
 ```bash
+# Compilar sin tests
+mvn clean install -DskipTests
+
+# Ejecutar aplicacion
+mvn spring-boot:run
+
 # Ejecutar tests
 mvn test
 
-# Limpiar y compilar
-mvn clean compile
+# Generar JAR
+mvn clean package -DskipTests
 
-# Ver dependencias
+# Ejecutar JAR
+java -jar target/hospital-system-0.0.1-SNAPSHOT.jar
+
+# Ver arbol de dependencias
 mvn dependency:tree
 
-# Generar documentacion
-mvn javadoc:javadoc
+# Actualizar dependencias
+mvn versions:display-dependency-updates
 ```
+
+---
+
+## Notas de Produccion
+
+| Aspecto | Recomendacion |
+|---------|---------------|
+| JWT Secret | Usar variable de entorno, minimo 256 bits |
+| Base de Datos | Cambiar `ddl-auto` a `validate`, usar migraciones |
+| HTTPS | Configurar SSL/TLS obligatorio |
+| Logs | Configurar nivel apropiado, rotacion de archivos |
+| Monitoreo | Integrar Spring Actuator |
+| Backup | Configurar respaldos automaticos de BD |
+
+---
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg" alt="Spring" width="40"/>
+  <br/>
+  Desarrollado con Spring Boot
+</p>
