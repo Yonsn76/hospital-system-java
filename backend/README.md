@@ -42,10 +42,6 @@
 
 API REST empresarial desarrollada con Spring Boot para la gestion integral de un sistema hospitalario. El sistema proporciona funcionalidades completas para la administracion de pacientes, citas medicas, hospitalizaciones, triaje, recetas, examenes de laboratorio, notas medicas y reportes clinicos.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/patternfly/patternfly-design/master/pattern-library/images/hospital-icon.png" alt="Hospital" width="120"/>
-</p>
-
 ### Caracteristicas Principales
 
 | Caracteristica | Descripcion |
@@ -63,39 +59,73 @@ API REST empresarial desarrollada con Spring Boot para la gestion integral de un
 
 ## Arquitectura del Sistema
 
+```mermaid
+graph TD
+    subgraph Cliente ["Cliente (Electron + React)"]
+        UI["Interfaz de Usuario"]
+        Redux["Redux Store"]
+        ReactQuery["React Query"]
+    end
+
+    subgraph API ["Spring Boot API"]
+        Controllers["Controllers REST"]
+        Security["Spring Security"]
+        JwtFilter["JWT Filter"]
+        Services["Service Layer"]
+        Repositories["JPA Repositories"]
+    end
+
+    subgraph Database ["Base de Datos"]
+        PostgreSQL[("PostgreSQL<br/>hospital_db")]
+    end
+
+    UI --> Redux
+    UI --> ReactQuery
+    ReactQuery -->|HTTP/REST| Controllers
+    Controllers --> Security
+    Security --> JwtFilter
+    JwtFilter --> Services
+    Services --> Repositories
+    Repositories -->|JDBC| PostgreSQL
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        CLIENTE (Frontend)                        │
-│                    Electron + React + TypeScript                 │
-└─────────────────────────────────┬───────────────────────────────┘
-                                  │ HTTP/REST
-                                  ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                      SPRING BOOT APPLICATION                     │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
-│  │ Controllers │  │  Security   │  │     JWT Filter          │  │
-│  │   (REST)    │  │   Config    │  │                         │  │
-│  └──────┬──────┘  └──────┬──────┘  └────────────┬────────────┘  │
-│         │                │                      │                │
-│         ▼                ▼                      ▼                │
-│  ┌─────────────────────────────────────────────────────────────┐│
-│  │                      SERVICE LAYER                          ││
-│  │  (Logica de Negocio, Validaciones, Transformaciones)        ││
-│  └──────────────────────────┬──────────────────────────────────┘│
-│                             │                                    │
-│                             ▼                                    │
-│  ┌─────────────────────────────────────────────────────────────┐│
-│  │                    REPOSITORY LAYER                         ││
-│  │              (Spring Data JPA / Hibernate)                  ││
-│  └──────────────────────────┬──────────────────────────────────┘│
-└─────────────────────────────┼───────────────────────────────────┘
-                              │ JDBC
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                        POSTGRESQL DATABASE                       │
-│                         (hospital_db)                            │
-└─────────────────────────────────────────────────────────────────┘
+
+### Capas de la Aplicacion
+
+```mermaid
+graph TB
+    subgraph Presentation ["Capa de Presentacion"]
+        REST["REST Controllers"]
+        DTO["DTOs"]
+    end
+
+    subgraph Business ["Capa de Negocio"]
+        Services["Services"]
+        Validation["Validaciones"]
+    end
+
+    subgraph Security ["Capa de Seguridad"]
+        JWT["JWT Util"]
+        Filter["Auth Filter"]
+        Config["Security Config"]
+    end
+
+    subgraph Persistence ["Capa de Persistencia"]
+        Repos["Repositories"]
+        Entities["Entities/Models"]
+    end
+
+    subgraph Data ["Capa de Datos"]
+        DB[("PostgreSQL")]
+    end
+
+    REST --> DTO
+    REST --> Services
+    Services --> Validation
+    Services --> Repos
+    Filter --> JWT
+    Config --> Filter
+    Repos --> Entities
+    Entities --> DB
 ```
 
 ---
@@ -181,102 +211,78 @@ backend/
 │   └── seed_data.sql           # Datos de prueba
 │
 ├── src/main/java/com/hospital/system/
-│   │
 │   ├── config/                 # Configuraciones
-│   │   ├── ApplicationConfig.java
-│   │   ├── DataInitializer.java
-│   │   └── SecurityConfig.java
-│   │
 │   ├── controller/             # Controladores REST (21)
-│   │   ├── AuthController.java
-│   │   ├── PatientController.java
-│   │   ├── AppointmentController.java
-│   │   ├── DoctorController.java
-│   │   ├── TriageController.java
-│   │   ├── HospitalizationController.java
-│   │   ├── PrescriptionController.java
-│   │   ├── LabExamController.java
-│   │   ├── MedicalNoteController.java
-│   │   ├── ClinicalHistoryController.java
-│   │   ├── ClinicalFileController.java
-│   │   ├── NursingController.java
-│   │   ├── ReferralController.java
-│   │   ├── ReportController.java
-│   │   ├── UserController.java
-│   │   ├── ModulePermissionController.java
-│   │   └── ...
-│   │
 │   ├── dto/                    # Data Transfer Objects (64)
-│   │   ├── Auth (Request/Response)
-│   │   ├── Patient (Request/Response)
-│   │   ├── Appointment (Request/Response)
-│   │   ├── Triage (Request/Response)
-│   │   ├── Hospitalization (Request/Response)
-│   │   ├── Prescription (Request/Response)
-│   │   ├── LabExam (Request/Response)
-│   │   ├── MedicalNote (Request/Response)
-│   │   ├── ClinicalHistory (Request/Response)
-│   │   ├── VitalSigns (Request/Response)
-│   │   ├── Referral (Request/Response)
-│   │   ├── Report DTOs
-│   │   └── ...
-│   │
 │   ├── model/                  # Entidades JPA (45)
-│   │   ├── User.java
-│   │   ├── Doctor.java
-│   │   ├── Patient.java
-│   │   ├── Appointment.java
-│   │   ├── Triage.java
-│   │   ├── Hospitalization.java
-│   │   ├── Bed.java
-│   │   ├── Prescription.java
-│   │   ├── LabExam.java
-│   │   ├── MedicalNote.java
-│   │   ├── ClinicalHistory.java
-│   │   ├── ClinicalFile.java
-│   │   ├── VitalSigns.java
-│   │   ├── Allergy.java
-│   │   ├── ChronicDisease.java
-│   │   ├── NursingObservation.java
-│   │   ├── Referral.java
-│   │   ├── Enums (Status, Priority, etc.)
-│   │   └── ...
-│   │
 │   ├── repository/             # Repositorios JPA (26)
-│   │   └── [Entidad]Repository.java
-│   │
 │   ├── security/               # Seguridad JWT
-│   │   ├── JwtAuthenticationFilter.java
-│   │   └── JwtUtil.java
-│   │
 │   ├── service/                # Servicios (24)
-│   │   ├── AuthService.java
-│   │   ├── PatientService.java
-│   │   ├── AppointmentService.java
-│   │   ├── TriageService.java
-│   │   ├── HospitalizationService.java
-│   │   ├── BedService.java
-│   │   ├── PrescriptionService.java
-│   │   ├── LabExamService.java
-│   │   ├── MedicalNoteService.java
-│   │   ├── ClinicalHistoryService.java
-│   │   ├── ClinicalFileService.java
-│   │   ├── VitalSignsService.java
-│   │   ├── AllergyService.java
-│   │   ├── ChronicDiseaseService.java
-│   │   ├── NursingObservationService.java
-│   │   ├── ReferralService.java
-│   │   ├── ReportService.java
-│   │   ├── ReportExportService.java
-│   │   ├── FileAccessLogService.java
-│   │   └── ...
-│   │
 │   └── HospitalSystemApplication.java
 │
 ├── src/main/resources/
 │   └── application.properties
 │
 └── pom.xml
+```
+
+### Diagrama de Componentes
+
+```mermaid
+graph LR
+    subgraph Controllers ["Controllers (21)"]
+        AuthC["AuthController"]
+        PatientC["PatientController"]
+        AppointmentC["AppointmentController"]
+        TriageC["TriageController"]
+        HospC["HospitalizationController"]
+        PrescC["PrescriptionController"]
+        LabC["LabExamController"]
+        NoteC["MedicalNoteController"]
+        ReportC["ReportController"]
+    end
+
+    subgraph Services ["Services (24)"]
+        AuthS["AuthService"]
+        PatientS["PatientService"]
+        AppointmentS["AppointmentService"]
+        TriageS["TriageService"]
+        HospS["HospitalizationService"]
+        PrescS["PrescriptionService"]
+        LabS["LabExamService"]
+        NoteS["MedicalNoteService"]
+        ReportS["ReportService"]
+    end
+
+    subgraph Repositories ["Repositories (26)"]
+        UserR["UserRepository"]
+        PatientR["PatientRepository"]
+        AppointmentR["AppointmentRepository"]
+        TriageR["TriageRepository"]
+        HospR["HospitalizationRepository"]
+        PrescR["PrescriptionRepository"]
+        LabR["LabExamRepository"]
+        NoteR["MedicalNoteRepository"]
+    end
+
+    AuthC --> AuthS
+    PatientC --> PatientS
+    AppointmentC --> AppointmentS
+    TriageC --> TriageS
+    HospC --> HospS
+    PrescC --> PrescS
+    LabC --> LabS
+    NoteC --> NoteS
+    ReportC --> ReportS
+
+    AuthS --> UserR
+    PatientS --> PatientR
+    AppointmentS --> AppointmentR
+    TriageS --> TriageR
+    HospS --> HospR
+    PrescS --> PrescR
+    LabS --> LabR
+    NoteS --> NoteR
 ```
 
 ---
@@ -300,8 +306,8 @@ backend/
 ### Triaje
 | Funcionalidad | Descripcion |
 |---------------|-------------|
-| Clasificacion | Prioridad por gravedad (RESUSCITATION, EMERGENCY, URGENT, LESS_URGENT, NON_URGENT) |
-| Signos Vitales | Registro de presion, temperatura, pulso, etc. |
+| Clasificacion | Prioridad por gravedad |
+| Signos Vitales | Registro de presion, temperatura, pulso |
 | Cola de Atencion | Ordenamiento por prioridad |
 
 ### Hospitalizacion
@@ -312,58 +318,51 @@ backend/
 | Transferencias | Movimiento entre areas |
 | Alta | Registro de egreso con tipo de alta |
 
-### Recetas Medicas
-| Funcionalidad | Descripcion |
-|---------------|-------------|
-| Prescripcion | Medicamentos con dosis e instrucciones |
-| Estados | ACTIVE, DISPENSED, CANCELLED, EXPIRED |
-| Impresion | Formato para farmacia |
-
-### Laboratorio
-| Funcionalidad | Descripcion |
-|---------------|-------------|
-| Solicitud | Ordenes de examenes |
-| Prioridad | ROUTINE, URGENT, STAT |
-| Resultados | Carga y consulta de resultados |
-
-### Notas Medicas
-| Funcionalidad | Descripcion |
-|---------------|-------------|
-| Tipos | Consulta, evolucion, interconsulta, egreso |
-| Versionado | Historial de modificaciones |
-| Firma | Registro del medico responsable |
-
-### Expediente Clinico
-| Funcionalidad | Descripcion |
-|---------------|-------------|
-| Historial | Antecedentes, alergias, enfermedades cronicas |
-| Archivos | Documentos adjuntos (imagenes, PDFs) |
-| Auditoria | Log de accesos al expediente |
-
-### Enfermeria
-| Funcionalidad | Descripcion |
-|---------------|-------------|
-| Observaciones | Notas de enfermeria |
-| Signos Vitales | Monitoreo periodico |
-| Medicacion | Administracion de medicamentos |
-
-### Referencias
-| Funcionalidad | Descripcion |
-|---------------|-------------|
-| Interconsulta | Derivacion a especialistas |
-| Externa | Referencia a otros centros |
-| Seguimiento | Estados y respuestas |
-
-### Reportes
-| Funcionalidad | Descripcion |
-|---------------|-------------|
-| Estadisticas | Metricas clinicas y operativas |
-| Productividad | Rendimiento por medico |
-| Exportacion | PDF y Excel |
-
 ---
 
 ## API Endpoints
+
+### Diagrama de Endpoints
+
+```mermaid
+graph LR
+    subgraph Auth ["/api/auth"]
+        Login["POST /login"]
+        Register["POST /register"]
+    end
+
+    subgraph Patients ["/api/patients"]
+        PList["GET /"]
+        PGet["GET /{id}"]
+        PSearch["GET /search"]
+        PCreate["POST /"]
+        PUpdate["PUT /{id}"]
+        PDelete["DELETE /{id}"]
+    end
+
+    subgraph Appointments ["/api/appointments"]
+        AList["GET /"]
+        AGet["GET /{id}"]
+        AByDoctor["GET /doctor/{id}"]
+        AByPatient["GET /patient/{id}"]
+        ACreate["POST /"]
+        AStatus["PATCH /{id}/status"]
+    end
+
+    subgraph Triage ["/api/triage"]
+        TList["GET /"]
+        TQueue["GET /queue"]
+        TCreate["POST /"]
+        TPriority["PATCH /{id}/priority"]
+    end
+
+    subgraph Clinical ["/api/..."]
+        Prescriptions["prescriptions"]
+        LabExams["lab-exams"]
+        MedicalNotes["medical-notes"]
+        ClinicalHistory["clinical-history"]
+    end
+```
 
 ### Autenticacion
 
@@ -391,54 +390,33 @@ backend/
 | GET | `/{id}` | Obtener por ID |
 | GET | `/doctor/{id}` | Por doctor |
 | GET | `/patient/{id}` | Por paciente |
-| GET | `/date/{date}` | Por fecha |
 | POST | `/` | Crear cita |
-| PUT | `/{id}` | Actualizar cita |
 | PATCH | `/{id}/status` | Cambiar estado |
-| DELETE | `/{id}` | Cancelar cita |
 
 ### Triaje `/api/triage`
 
 | Metodo | Endpoint | Descripcion |
 |--------|----------|-------------|
 | GET | `/` | Listar todos |
-| GET | `/{id}` | Obtener por ID |
 | GET | `/queue` | Cola de atencion |
-| GET | `/patient/{id}` | Por paciente |
 | POST | `/` | Crear triaje |
-| PUT | `/{id}` | Actualizar |
 | PATCH | `/{id}/priority` | Cambiar prioridad |
-| PATCH | `/{id}/status` | Cambiar estado |
 
 ### Hospitalizacion `/api/hospitalizations`
 
 | Metodo | Endpoint | Descripcion |
 |--------|----------|-------------|
 | GET | `/` | Listar activas |
-| GET | `/{id}` | Obtener por ID |
-| GET | `/patient/{id}` | Por paciente |
 | POST | `/` | Ingresar paciente |
 | POST | `/{id}/discharge` | Dar de alta |
 | POST | `/{id}/transfer` | Transferir cama |
-
-### Camas `/api/beds`
-
-| Metodo | Endpoint | Descripcion |
-|--------|----------|-------------|
-| GET | `/` | Listar todas |
-| GET | `/available` | Disponibles |
-| GET | `/area/{area}` | Por area |
-| POST | `/` | Crear cama |
-| PATCH | `/{id}/status` | Cambiar estado |
 
 ### Recetas `/api/prescriptions`
 
 | Metodo | Endpoint | Descripcion |
 |--------|----------|-------------|
 | GET | `/` | Listar todas |
-| GET | `/{id}` | Obtener por ID |
 | GET | `/patient/{id}` | Por paciente |
-| GET | `/{id}/print` | Formato impresion |
 | POST | `/` | Crear receta |
 | PATCH | `/{id}/status` | Cambiar estado |
 
@@ -447,91 +425,17 @@ backend/
 | Metodo | Endpoint | Descripcion |
 |--------|----------|-------------|
 | GET | `/` | Listar todos |
-| GET | `/{id}` | Obtener por ID |
-| GET | `/patient/{id}` | Por paciente |
 | GET | `/pending` | Pendientes |
 | POST | `/` | Solicitar examen |
 | POST | `/{id}/results` | Cargar resultados |
-| PATCH | `/{id}/status` | Cambiar estado |
-
-### Notas Medicas `/api/medical-notes`
-
-| Metodo | Endpoint | Descripcion |
-|--------|----------|-------------|
-| GET | `/` | Listar todas |
-| GET | `/{id}` | Obtener por ID |
-| GET | `/patient/{id}` | Por paciente |
-| GET | `/{id}/versions` | Historial versiones |
-| POST | `/` | Crear nota |
-| PUT | `/{id}` | Actualizar nota |
-
-### Historial Clinico `/api/clinical-history`
-
-| Metodo | Endpoint | Descripcion |
-|--------|----------|-------------|
-| GET | `/patient/{id}` | Historial completo |
-| POST | `/patient/{id}` | Crear/actualizar |
-| POST | `/patient/{id}/allergies` | Agregar alergia |
-| POST | `/patient/{id}/diseases` | Agregar enfermedad |
-| DELETE | `/allergies/{id}` | Eliminar alergia |
-| DELETE | `/diseases/{id}` | Eliminar enfermedad |
-
-### Expediente Clinico `/api/clinical-files`
-
-| Metodo | Endpoint | Descripcion |
-|--------|----------|-------------|
-| GET | `/patient/{id}` | Archivos del paciente |
-| GET | `/{id}` | Obtener archivo |
-| GET | `/{id}/access-log` | Log de accesos |
-| POST | `/` | Subir archivo |
-| DELETE | `/{id}` | Eliminar archivo |
-
-### Enfermeria `/api/nursing`
-
-| Metodo | Endpoint | Descripcion |
-|--------|----------|-------------|
-| GET | `/observations/patient/{id}` | Observaciones |
-| GET | `/vital-signs/patient/{id}` | Signos vitales |
-| POST | `/observations` | Crear observacion |
-| POST | `/vital-signs` | Registrar signos |
-
-### Referencias `/api/referrals`
-
-| Metodo | Endpoint | Descripcion |
-|--------|----------|-------------|
-| GET | `/` | Listar todas |
-| GET | `/{id}` | Obtener por ID |
-| GET | `/patient/{id}` | Por paciente |
-| POST | `/` | Crear referencia |
-| PATCH | `/{id}/status` | Actualizar estado |
 
 ### Reportes `/api/reports`
 
 | Metodo | Endpoint | Descripcion |
 |--------|----------|-------------|
 | GET | `/statistics` | Estadisticas generales |
-| GET | `/attendance` | Reporte de atenciones |
-| GET | `/productivity` | Productividad medica |
-| GET | `/frequent-patients` | Pacientes frecuentes |
 | GET | `/export/pdf` | Exportar a PDF |
 | GET | `/export/excel` | Exportar a Excel |
-
-### Usuarios `/api/users`
-
-| Metodo | Endpoint | Descripcion |
-|--------|----------|-------------|
-| GET | `/` | Listar usuarios |
-| GET | `/{id}` | Obtener por ID |
-| PUT | `/{id}` | Actualizar usuario |
-| DELETE | `/{id}` | Eliminar usuario |
-
-### Permisos `/api/permissions`
-
-| Metodo | Endpoint | Descripcion |
-|--------|----------|-------------|
-| GET | `/role/{role}` | Permisos por rol |
-| POST | `/` | Asignar permiso |
-| DELETE | `/{id}` | Revocar permiso |
 
 ---
 
@@ -549,37 +453,62 @@ backend/
 
 ### Flujo de Autenticacion
 
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Client as Cliente
+    participant Auth as AuthController
+    participant Service as AuthService
+    participant JWT as JwtUtil
+    participant DB as PostgreSQL
+
+    Client->>Auth: POST /api/auth/login
+    Note over Client,Auth: {username, password}
+    Auth->>Service: authenticate(request)
+    Service->>DB: findByUsername()
+    DB-->>Service: User entity
+    Service->>Service: validatePassword()
+    
+    alt Credenciales Invalidas
+        Service-->>Auth: BadCredentialsException
+        Auth-->>Client: 401 Unauthorized
+    else Credenciales Validas
+        Service->>JWT: generateToken(user)
+        JWT-->>Service: JWT Token
+        Service-->>Auth: AuthResponse
+        Auth-->>Client: 200 OK + {token, role}
+    end
 ```
-┌──────────┐         ┌──────────┐         ┌──────────┐
-│  Cliente │         │   API    │         │   JWT    │
-└────┬─────┘         └────┬─────┘         └────┬─────┘
-     │                    │                    │
-     │  POST /auth/login  │                    │
-     │  {user, password}  │                    │
-     │───────────────────>│                    │
-     │                    │  Validar           │
-     │                    │  credenciales      │
-     │                    │───────────────────>│
-     │                    │                    │
-     │                    │  Generar Token     │
-     │                    │<───────────────────│
-     │                    │                    │
-     │  {token, role}     │                    │
-     │<───────────────────│                    │
-     │                    │                    │
-     │  GET /api/patients │                    │
-     │  Authorization:    │                    │
-     │  Bearer <token>    │                    │
-     │───────────────────>│                    │
-     │                    │  Validar Token     │
-     │                    │───────────────────>│
-     │                    │                    │
-     │                    │  Token valido      │
-     │                    │<───────────────────│
-     │                    │                    │
-     │  [patients]        │                    │
-     │<───────────────────│                    │
-     │                    │                    │
+
+### Flujo de Peticion Autenticada
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Client as Cliente
+    participant Filter as JwtAuthFilter
+    participant JWT as JwtUtil
+    participant Controller as Controller
+    participant Service as Service
+    participant DB as PostgreSQL
+
+    Client->>Filter: GET /api/patients
+    Note over Client,Filter: Authorization: Bearer token
+    Filter->>JWT: validateToken(token)
+    
+    alt Token Invalido
+        JWT-->>Filter: false
+        Filter-->>Client: 401 Unauthorized
+    else Token Valido
+        JWT->>JWT: extractClaims()
+        JWT-->>Filter: UserDetails
+        Filter->>Controller: Continue request
+        Controller->>Service: getAllPatients()
+        Service->>DB: findAll()
+        DB-->>Service: List<Patient>
+        Service-->>Controller: List<PatientDTO>
+        Controller-->>Client: 200 OK + JSON
+    end
 ```
 
 ### Configuracion JWT
@@ -593,9 +522,100 @@ jwt.expiration=86400000  # 24 horas en ms
 
 ## Base de Datos
 
-### Diagrama Entidad-Relacion
+### Diagrama Entidad-Relacion (Simplificado)
 
-Ver diagrama completo en: `../diagrams/er_diagram.md`
+```mermaid
+erDiagram
+    USERS ||--o| DOCTORS : "es"
+    PATIENTS ||--o{ APPOINTMENTS : "tiene"
+    DOCTORS ||--o{ APPOINTMENTS : "atiende"
+    PATIENTS ||--o{ TRIAGES : "tiene"
+    PATIENTS ||--o{ HOSPITALIZATIONS : "tiene"
+    BEDS ||--o{ HOSPITALIZATIONS : "asignada"
+    PATIENTS ||--o{ PRESCRIPTIONS : "tiene"
+    DOCTORS ||--o{ PRESCRIPTIONS : "emite"
+    PRESCRIPTIONS ||--o{ PRESCRIPTION_ITEMS : "contiene"
+    PATIENTS ||--o{ LAB_EXAMS : "tiene"
+    LAB_EXAMS ||--o{ LAB_RESULTS : "tiene"
+    PATIENTS ||--o{ MEDICAL_NOTES : "tiene"
+    PATIENTS ||--|| CLINICAL_HISTORIES : "tiene"
+    PATIENTS ||--o{ ALLERGIES : "tiene"
+    PATIENTS ||--o{ CLINICAL_FILES : "tiene"
+
+    USERS {
+        bigint id PK
+        varchar username UK
+        varchar password
+        varchar role
+        boolean active
+    }
+
+    PATIENTS {
+        bigint id PK
+        varchar first_name
+        varchar last_name
+        varchar document_number UK
+        date date_of_birth
+        varchar blood_type
+    }
+
+    DOCTORS {
+        bigint id PK
+        bigint user_id FK
+        varchar specialization
+        varchar license_number UK
+    }
+
+    APPOINTMENTS {
+        bigint id PK
+        bigint patient_id FK
+        bigint doctor_id FK
+        timestamp appointment_date
+        varchar status
+    }
+
+    TRIAGES {
+        bigint id PK
+        bigint patient_id FK
+        varchar priority
+        varchar status
+    }
+
+    HOSPITALIZATIONS {
+        bigint id PK
+        bigint patient_id FK
+        bigint bed_id FK
+        varchar status
+    }
+
+    BEDS {
+        bigint id PK
+        varchar bed_number UK
+        varchar area
+        varchar status
+    }
+
+    PRESCRIPTIONS {
+        bigint id PK
+        bigint patient_id FK
+        bigint doctor_id FK
+        varchar status
+    }
+
+    LAB_EXAMS {
+        bigint id PK
+        bigint patient_id FK
+        varchar exam_type
+        varchar status
+    }
+
+    MEDICAL_NOTES {
+        bigint id PK
+        bigint patient_id FK
+        bigint doctor_id FK
+        varchar note_type
+    }
+```
 
 ### Tablas Principales
 
@@ -613,16 +633,12 @@ Ver diagrama completo en: `../diagrams/er_diagram.md`
 | lab_exams | Examenes de laboratorio |
 | lab_results | Resultados de examenes |
 | medical_notes | Notas medicas |
-| medical_note_versions | Versiones de notas |
 | clinical_histories | Historiales clinicos |
 | clinical_files | Archivos clinicos |
 | allergies | Alergias de pacientes |
-| chronic_diseases | Enfermedades cronicas |
-| vital_signs | Signos vitales |
-| nursing_observations | Observaciones enfermeria |
-| referrals | Referencias medicas |
 | file_access_logs | Auditoria de accesos |
-| module_permissions | Permisos por modulo |
+
+Ver diagrama completo en: [../diagrams/er_diagram.md](../diagrams/er_diagram.md)
 
 ---
 
@@ -644,6 +660,24 @@ Ver diagrama completo en: `../diagrams/er_diagram.md`
     <artifactId>poi-ooxml</artifactId>
     <version>5.2.5</version>
 </dependency>
+```
+
+### Flujo de Exportacion
+
+```mermaid
+sequenceDiagram
+    participant Client as Cliente
+    participant Controller as ReportController
+    participant Service as ReportExportService
+    participant DB as PostgreSQL
+
+    Client->>Controller: GET /api/reports/export/pdf
+    Controller->>Service: generatePdfReport(params)
+    Service->>DB: fetchReportData()
+    DB-->>Service: Data
+    Service->>Service: buildPdfDocument()
+    Service-->>Controller: byte[] pdf
+    Controller-->>Client: application/pdf
 ```
 
 ### Formatos Disponibles
@@ -675,9 +709,6 @@ java -jar target/hospital-system-0.0.1-SNAPSHOT.jar
 
 # Ver arbol de dependencias
 mvn dependency:tree
-
-# Actualizar dependencias
-mvn versions:display-dependency-updates
 ```
 
 ---
