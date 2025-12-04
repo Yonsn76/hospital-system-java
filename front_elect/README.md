@@ -111,8 +111,8 @@ npm --version
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/Yonsn76/citas-medic.git
-cd citas-medic/front_elect
+git clone https://github.com/Yonsn76/hospital-system-java.git
+cd hospital-system-java/front_elect
 ```
 
 2. Instalar las dependencias:
@@ -162,13 +162,6 @@ front_elect/
 ├── src/
 │   ├── main/                      # Proceso Principal (Node.js)
 │   │   ├── services/              # Servicios de negocio
-│   │   │   ├── CitaService.ts
-│   │   │   ├── ConfigManager.ts
-│   │   │   ├── DataStore.ts
-│   │   │   ├── DoctorService.ts
-│   │   │   ├── EspecialidadService.ts
-│   │   │   ├── PacienteService.ts
-│   │   │   └── ThemeService.ts
 │   │   ├── utils/                 # Utilidades
 │   │   ├── index.ts               # Entry point del proceso main
 │   │   └── ipc.ts                 # Handlers de comunicacion IPC
@@ -181,12 +174,10 @@ front_elect/
 │       └── src/
 │           ├── assets/            # Imagenes y recursos estaticos
 │           ├── components/        # Componentes reutilizables
-│           │   └── Layout/        # Componentes de layout
 │           ├── config/            # Configuracion de modulos
 │           ├── context/           # Contextos de React (Theme)
 │           ├── hooks/             # Custom hooks
 │           ├── pages/             # Paginas/Vistas de la aplicacion
-│           │   └── settings/      # Paginas de configuracion
 │           ├── services/          # Servicios API
 │           ├── store/             # Redux store y slices
 │           ├── styles/            # Estilos globales CSS
@@ -197,9 +188,6 @@ front_elect/
 ├── electron.vite.config.ts        # Configuracion de Vite para Electron
 ├── tailwind.config.js             # Configuracion de TailwindCSS
 ├── tsconfig.json                  # Configuracion base de TypeScript
-├── tsconfig.node.json             # Config TS para proceso main
-├── tsconfig.web.json              # Config TS para renderer
-├── vitest.config.ts               # Configuracion de Vitest
 └── package.json                   # Dependencias y scripts
 ```
 
@@ -209,102 +197,206 @@ front_elect/
 
 ### Arquitectura de Electron
 
-La aplicacion sigue el modelo de arquitectura de Electron con tres procesos principales:
+```mermaid
+graph TD
+    subgraph ElectronApp ["Aplicacion Electron"]
+        subgraph MainProcess ["Proceso Main (Node.js)"]
+            BrowserWindow["BrowserWindow"]
+            IpcMain["ipcMain"]
+            Services["Servicios Locales"]
+            Store["Electron Store"]
+        end
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                        PROCESO MAIN                              │
-│                       (Node.js Runtime)                          │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
-│  │  Services   │  │    IPC      │  │   Electron APIs         │  │
-│  │  - Citas    │  │  Handlers   │  │   - BrowserWindow       │  │
-│  │  - Paciente │  │             │  │   - Menu                │  │
-│  │  - Doctor   │  │             │  │   - Tray                │  │
-│  └─────────────┘  └─────────────┘  └─────────────────────────┘  │
-└────────────────────────────┬────────────────────────────────────┘
-                             │
-                    IPC (Inter-Process Communication)
-                             │
-┌────────────────────────────┴────────────────────────────────────┐
-│                       PROCESO PRELOAD                            │
-│                    (Bridge de Seguridad)                         │
-│  ┌─────────────────────────────────────────────────────────┐    │
-│  │  contextBridge.exposeInMainWorld('api', { ... })        │    │
-│  └─────────────────────────────────────────────────────────┘    │
-└────────────────────────────┬────────────────────────────────────┘
-                             │
-                      window.api
-                             │
-┌────────────────────────────┴────────────────────────────────────┐
-│                      PROCESO RENDERER                            │
-│                    (Chromium - React App)                        │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
-│  │   React     │  │   Redux     │  │   React Query           │  │
-│  │   Router    │  │   Store     │  │   (Server State)        │  │
-│  └─────────────┘  └─────────────┘  └─────────────────────────┘  │
-│  ┌─────────────────────────────────────────────────────────┐    │
-│  │                    Ant Design UI                         │    │
-│  └─────────────────────────────────────────────────────────┘    │
-└─────────────────────────────────────────────────────────────────┘
+        subgraph PreloadProcess ["Proceso Preload"]
+            ContextBridge["contextBridge"]
+            IpcRenderer["ipcRenderer"]
+        end
+
+        subgraph RendererProcess ["Proceso Renderer (Chromium)"]
+            ReactApp["React App"]
+            WindowAPI["window.api"]
+        end
+    end
+
+    BrowserWindow -->|carga| RendererProcess
+    IpcMain <-->|invoke/handle| IpcRenderer
+    ContextBridge -->|exposeInMainWorld| WindowAPI
+    ReactApp -->|usa| WindowAPI
+    Services --> Store
 ```
 
-### Flujo de Comunicacion IPC
+### Comunicacion IPC
 
+```mermaid
+sequenceDiagram
+    autonumber
+    participant User as Usuario
+    participant React as React Component
+    participant API as window.api
+    participant Preload as Preload Script
+    participant Main as Main Process
+    participant Service as Service
+
+    User->>React: Interaccion UI
+    React->>API: window.api.metodo()
+    API->>Preload: contextBridge
+    Preload->>Main: ipcRenderer.invoke('canal', datos)
+    Main->>Service: Procesar solicitud
+    Service-->>Main: Resultado
+    Main-->>Preload: Respuesta
+    Preload-->>API: Promise resolved
+    API-->>React: Datos
+    React-->>User: Actualiza UI
 ```
-Usuario interactua con UI
-         │
-         ▼
-┌─────────────────┐
-│    Renderer     │  1. Llama a window.api.metodo()
-│    (React)      │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│    Preload      │  2. ipcRenderer.invoke('canal', datos)
-│    (Bridge)     │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│     Main        │  3. Procesa en el servicio correspondiente
-│   (Node.js)     │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│   Backend API   │  4. Peticion HTTP al servidor Spring Boot
-│  (Spring Boot)  │
-└────────┬────────┘
-         │
-         ▼
-    Respuesta regresa por el mismo camino
+
+### Flujo de Datos con Backend
+
+```mermaid
+flowchart LR
+    subgraph Frontend ["Frontend (Electron)"]
+        Component["React Component"]
+        Query["React Query"]
+        APIService["API Service"]
+        Redux["Redux Store"]
+    end
+
+    subgraph Backend ["Backend (Spring Boot)"]
+        REST["REST API"]
+        DB[("PostgreSQL")]
+    end
+
+    Component -->|useQuery| Query
+    Query -->|fetch| APIService
+    APIService -->|HTTP + JWT| REST
+    REST -->|JSON| APIService
+    APIService -->|cache| Query
+    Query -->|data| Component
+    Component -->|dispatch| Redux
+    Redux -->|state| Component
+    REST <--> DB
 ```
 
 ### Gestion de Estado
 
+```mermaid
+graph TB
+    subgraph ReduxStore ["Redux Store"]
+        AuthSlice["authSlice<br/>- user<br/>- token<br/>- isAuthenticated"]
+        ModulesSlice["modulesSlice<br/>- permissions<br/>- modules"]
+        SettingsSlice["settingsSlice<br/>- theme<br/>- language"]
+        UISlice["uiSlice<br/>- sidebarCollapsed<br/>- notifications"]
+    end
+
+    subgraph Persistence ["Redux Persist"]
+        LocalStorage["localStorage"]
+    end
+
+    subgraph ReactQuery ["React Query Cache"]
+        Patients["patients"]
+        Appointments["appointments"]
+        Doctors["doctors"]
+    end
+
+    AuthSlice --> LocalStorage
+    SettingsSlice --> LocalStorage
+    
+    ReactQuery -->|Server State| Component["Components"]
+    ReduxStore -->|Client State| Component
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                      REDUX STORE                             │
-├─────────────────┬─────────────────┬─────────────────────────┤
-│   authSlice     │  modulesSlice   │     settingsSlice       │
-│  - user         │  - permissions  │     - theme             │
-│  - token        │  - modules      │     - language          │
-│  - isAuth       │  - roles        │     - preferences       │
-├─────────────────┴─────────────────┴─────────────────────────┤
-│                     uiSlice                                  │
-│  - sidebarCollapsed                                          │
-│  - notifications                                             │
-└─────────────────────────────────────────────────────────────┘
-                             │
-                    Redux Persist
-                             │
-                      LocalStorage
+
+### Flujo de Autenticacion
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant User as Usuario
+    participant Login as Login Page
+    participant API as API Service
+    participant Backend as Spring Boot
+    participant Redux as Redux Store
+    participant Storage as localStorage
+
+    User->>Login: Ingresa credenciales
+    Login->>API: login(username, password)
+    API->>Backend: POST /api/auth/login
+    
+    alt Credenciales Invalidas
+        Backend-->>API: 401 Unauthorized
+        API-->>Login: Error
+        Login-->>User: Mostrar error
+    else Credenciales Validas
+        Backend-->>API: {token, user, role}
+        API->>Redux: dispatch(loginSuccess)
+        Redux->>Storage: Persist token
+        Login->>Login: Navigate to Dashboard
+        Login-->>User: Mostrar Dashboard
+    end
+```
+
+### Estructura de Componentes
+
+```mermaid
+graph TD
+    App["App.tsx"]
+    App --> ThemeProvider["ThemeProvider"]
+    ThemeProvider --> ConfigProvider["Ant ConfigProvider"]
+    ConfigProvider --> Router["HashRouter"]
+    
+    Router --> Login["Login Page"]
+    Router --> Layout["Layout Component"]
+    
+    Layout --> Sidebar["Sidebar"]
+    Layout --> Header["Header"]
+    Layout --> Content["Content Area"]
+    
+    Content --> Dashboard["Dashboard"]
+    Content --> Pacientes["Pacientes"]
+    Content --> Citas["Citas"]
+    Content --> Calendario["Calendario"]
+    Content --> Triaje["Triaje"]
+    Content --> Hospitalizacion["Hospitalizacion"]
+    Content --> Prescripciones["Prescripciones"]
+    Content --> Laboratorio["Laboratorio"]
+    Content --> Reportes["Reportes"]
+    Content --> Configuracion["Configuracion"]
 ```
 
 ---
 
 ## Modulos del Sistema
+
+### Diagrama de Modulos
+
+```mermaid
+graph LR
+    subgraph Principal ["Principal"]
+        Dashboard["Dashboard"]
+        Citas["Citas"]
+        Calendario["Calendario"]
+        Pacientes["Pacientes"]
+        Doctores["Doctores"]
+    end
+
+    subgraph Clinico ["Clinico"]
+        Historia["Historia Clinica"]
+        Notas["Notas Medicas"]
+        Prescripciones["Prescripciones"]
+        Laboratorio["Laboratorio"]
+        Triaje["Triaje"]
+        Derivaciones["Derivaciones"]
+    end
+
+    subgraph Administrativo ["Administrativo"]
+        Archivos["Archivos Clinicos"]
+        Hospitalizacion["Hospitalizacion"]
+        Camas["Gestion Camas"]
+        Accesos["Gestion Accesos"]
+    end
+
+    subgraph Reportes ["Reportes"]
+        Stats["Estadisticas"]
+    end
+```
 
 ### Modulos por Categoria
 
@@ -346,7 +438,17 @@ Usuario interactua con UI
 
 ### Configuracion de Tema
 
-La aplicacion soporta tema claro y oscuro. La configuracion se gestiona a traves del `ThemeProvider` y se persiste en el almacenamiento local.
+```mermaid
+graph LR
+    ThemeProvider["ThemeProvider"]
+    ThemeProvider --> ThemeContext["Theme Context"]
+    ThemeContext --> Light["Tema Claro"]
+    ThemeContext --> Dark["Tema Oscuro"]
+    
+    ThemeContext --> AntDesign["Ant Design Theme"]
+    ThemeContext --> Tailwind["Tailwind Classes"]
+    ThemeContext --> CSS["CSS Variables"]
+```
 
 ### Configuracion de Vite
 
@@ -359,13 +461,30 @@ El archivo `electron.vite.config.ts` define los alias de importacion:
 '@shared'   -> 'packages/shared'
 ```
 
-### Variables de Entorno
-
-La aplicacion puede configurarse mediante variables de entorno para diferentes ambientes.
-
 ---
 
 ## Compilacion y Distribucion
+
+### Proceso de Build
+
+```mermaid
+flowchart TD
+    Source["Codigo Fuente"]
+    Source --> TypeCheck["TypeScript Check"]
+    TypeCheck --> ViteBuild["Vite Build"]
+    
+    ViteBuild --> MainBundle["Main Bundle"]
+    ViteBuild --> PreloadBundle["Preload Bundle"]
+    ViteBuild --> RendererBundle["Renderer Bundle"]
+    
+    MainBundle --> ElectronBuilder["Electron Builder"]
+    PreloadBundle --> ElectronBuilder
+    RendererBundle --> ElectronBuilder
+    
+    ElectronBuilder --> Windows["Windows .exe"]
+    ElectronBuilder --> MacOS["macOS .dmg"]
+    ElectronBuilder --> Linux["Linux .AppImage"]
+```
 
 ### Generar Instaladores
 
@@ -386,16 +505,13 @@ npm run build:linux
 
 Los instaladores se generan en la carpeta `dist/`.
 
-### Configuracion de Electron Builder
+---
 
-La configuracion de empaquetado se encuentra en `electron-builder.yml`. Incluye:
+## Licencia
 
-- Configuracion de iconos por plataforma
-- Opciones de firma de codigo
-- Configuracion de auto-actualizacion
-- Formatos de instalador (NSIS, DMG, AppImage)
+Este proyecto esta bajo la Licencia MIT. Consulta el archivo LICENSE para mas detalles.
 
-
+---
 
 <p align="center">
   <img src="https://img.shields.io/badge/Made%20with-Electron-47848F?style=flat-square&logo=electron" alt="Made with Electron">
