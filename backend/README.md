@@ -7,6 +7,12 @@
   <img src="https://img.shields.io/badge/JWT-Security-red?style=for-the-badge&logo=jsonwebtokens" alt="JWT"/>
 </p>
 
+<p align="center">
+  <a href="https://github.com/Yonsn76/hospital-system-java">
+    <img src="https://img.shields.io/badge/Repositorio-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repo"/>
+  </a>
+</p>
+
 ---
 
 ## Tabla de Contenidos
