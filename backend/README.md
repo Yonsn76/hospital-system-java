@@ -128,6 +128,18 @@ graph TB
     Entities --> DB
 ```
 
+### Organizacion Modular
+
+El proyecto implementa una arquitectura basada en **Modulos Funcionales** (Vertical Slicing conceptual). Aunque se mantienen las capas tecnicas (Controller, Service, Repository), internamente cada una se organiza por dominio de negocio:
+
+*   **Appointment**: Gestion del ciclo de vida de citas.
+*   **Clinical**: Historia clinica, antecedentes y alergias.
+*   **Patient**: Informacion demografica y administrativa de pacientes.
+*   **Medical**: Notas de evolucion y prescripciones.
+*   **Etc.**
+
+Esta estructura mejora la cohesion del codigo y facilita el mantenimiento al agrupar clases relacionadas por su funcion de negocio.
+
 ---
 
 ## Requisitos Previos
@@ -211,13 +223,79 @@ backend/
 │   └── seed_data.sql           # Datos de prueba
 │
 ├── src/main/java/com/hospital/system/
-│   ├── config/                 # Configuraciones
-│   ├── controller/             # Controladores REST (21)
-│   ├── dto/                    # Data Transfer Objects (64)
-│   ├── model/                  # Entidades JPA (45)
-│   ├── repository/             # Repositorios JPA (26)
-│   ├── security/               # Seguridad JWT
-│   ├── service/                # Servicios (24)
+│   ├── config/                 # Configuraciones Globales
+│   │
+│   ├── controller/             # Controladores REST
+│   │   ├── appointment/        # Modulo Citas
+│   │   ├── auth/               # Modulo Autenticacion
+│   │   ├── clinical/           # Modulo Historia Clinica
+│   │   ├── files/              # Modulo Archivos
+│   │   ├── hospitalization/    # Modulo Hospitalizacion
+│   │   ├── lab/                # Modulo Laboratorio
+│   │   ├── medical/            # Modulo Medico
+│   │   ├── nursing/            # Modulo Enfermeria
+│   │   ├── patient/            # Modulo Pacientes
+│   │   ├── referral/           # Modulo Derivaciones
+│   │   ├── report/             # Modulo Reportes
+│   │   └── resource/           # Modulo Recursos
+│   │
+│   ├── dto/                    # Data Transfer Objects
+│   │   ├── appointment/
+│   │   ├── auth/
+│   │   ├── clinical/
+│   │   ├── files/
+│   │   ├── hospitalization/
+│   │   ├── lab/
+│   │   ├── medical/
+│   │   ├── nursing/
+│   │   ├── patient/
+│   │   ├── referral/
+│   │   ├── report/
+│   │   └── resource/
+│   │
+│   ├── model/                  # Entidades JPA
+│   │   ├── appointment/
+│   │   ├── auth/
+│   │   ├── clinical/
+│   │   ├── core/               # Entidades Base (Patient, Doctor)
+│   │   ├── files/
+│   │   ├── hospitalization/
+│   │   ├── lab/
+│   │   ├── medical/
+│   │   ├── nursing/
+│   │   ├── referral/
+│   │   └── resource/
+│   │
+│   ├── repository/             # Repositorios JPA
+│   │   ├── appointment/
+│   │   ├── auth/
+│   │   ├── clinical/
+│   │   ├── core/
+│   │   ├── files/
+│   │   ├── hospitalization/
+│   │   ├── lab/
+│   │   ├── medical/
+│   │   ├── nursing/
+│   │   ├── patient/
+│   │   ├── referral/
+│   │   └── resource/
+│   │
+│   ├── security/               # Seguridad y JWT
+│   │
+│   ├── service/                # Logica de Negocio
+│   │   ├── appointment/
+│   │   ├── auth/
+│   │   ├── clinical/
+│   │   ├── files/
+│   │   ├── hospitalization/
+│   │   ├── lab/
+│   │   ├── medical/
+│   │   ├── nursing/
+│   │   ├── patient/
+│   │   ├── referral/
+│   │   ├── report/
+│   │   └── resource/
+│   │
 │   └── HospitalSystemApplication.java
 │
 ├── src/main/resources/

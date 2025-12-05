@@ -1,10 +1,10 @@
 package com.hospital.system.config;
 
-import com.hospital.system.model.Doctor;
-import com.hospital.system.model.Role;
-import com.hospital.system.model.User;
-import com.hospital.system.repository.DoctorRepository;
-import com.hospital.system.repository.UserRepository;
+import com.hospital.system.model.core.Doctor;
+import com.hospital.system.model.auth.Role;
+import com.hospital.system.model.auth.User;
+import com.hospital.system.repository.core.DoctorRepository;
+import com.hospital.system.repository.auth.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;

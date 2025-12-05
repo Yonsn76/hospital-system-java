@@ -1,0 +1,604 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.hospital:system >-------------------------
+[INFO] Building hospital-system 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ system ---
+[INFO] Deleting C:\Users\Yonsn\Desktop\DevJourney\hospital-system-java\backend\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ system ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ system ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 191 source files with javac [debug release 17] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[32,27] cannot find symbol
+  symbol:   class ClinicalHistoryResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[40,26] cannot find symbol
+  symbol:   class ClinicalHistoryRequest
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[38,27] cannot find symbol
+  symbol:   class ClinicalHistoryResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[46,32] cannot find symbol
+  symbol:   class PatientResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[57,33] cannot find symbol
+  symbol:   class AllergyRequest
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[55,27] cannot find symbol
+  symbol:   class AllergyResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[63,32] cannot find symbol
+  symbol:   class AllergyResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[69,32] cannot find symbol
+  symbol:   class AllergyResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[80,33] cannot find symbol
+  symbol:   class AllergyRequest
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[77,27] cannot find symbol
+  symbol:   class AllergyResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[99,33] cannot find symbol
+  symbol:   class ChronicDiseaseRequest
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[97,27] cannot find symbol
+  symbol:   class ChronicDiseaseResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[105,32] cannot find symbol
+  symbol:   class ChronicDiseaseResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[111,32] cannot find symbol
+  symbol:   class ChronicDiseaseResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[122,33] cannot find symbol
+  symbol:   class ChronicDiseaseRequest
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[119,27] cannot find symbol
+  symbol:   class ChronicDiseaseResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[128,27] cannot find symbol
+  symbol:   class ChronicDiseaseResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[150,33] cannot find symbol
+  symbol:   class ClinicalEvolutionRequest
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[148,27] cannot find symbol
+  symbol:   class ClinicalEvolutionResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[156,32] cannot find symbol
+  symbol:   class ClinicalEvolutionResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[162,27] cannot find symbol
+  symbol:   class ClinicalEvolutionResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[173,33] cannot find symbol
+  symbol:   class ClinicalEvolutionRequest
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[170,27] cannot find symbol
+  symbol:   class ClinicalEvolutionResponse
+  location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[19,19] cannot find symbol
+  symbol:   class ClinicalHistoryRepository
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[20,19] cannot find symbol
+  symbol:   class AllergyRepository
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[21,19] cannot find symbol
+  symbol:   class ChronicDiseaseRepository
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[22,19] cannot find symbol
+  symbol:   class ClinicalEvolutionRepository
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[23,19] cannot find symbol
+  symbol:   class PatientRepository
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[24,19] cannot find symbol
+  symbol:   class DoctorRepository
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[27,12] cannot find symbol
+  symbol:   class ClinicalHistoryResponse
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[37,74] cannot find symbol
+  symbol:   class ClinicalHistoryRequest
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[37,12] cannot find symbol
+  symbol:   class ClinicalHistoryResponse
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[56,17] cannot find symbol
+  symbol:   class PatientResponse
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[85,13] cannot find symbol
+  symbol:   class ClinicalHistoryResponse
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[126,13] cannot find symbol
+  symbol:   class AllergyResponse
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[137,13] cannot find symbol
+  symbol:   class ChronicDiseaseResponse
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[150,13] cannot find symbol
+  symbol:   class ClinicalEvolutionResponse
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[166,13] cannot find symbol
+  symbol:   class PatientResponse
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[16,1] cannot find symbol
+  symbol:   class ClinicalHistoryRepository
+  location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[3,1] package com.hospital.system.dto does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[3,1] package com.hospital.system.dto does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[5,1] package com.hospital.system.repository does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/nursing/TriageService.java:[31,19] cannot find symbol
+  symbol:   class VitalSignsService
+  location: class com.hospital.system.service.nursing.TriageService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/nursing/TriageService.java:[25,1] cannot find symbol
+  symbol:   class VitalSignsService
+  location: class com.hospital.system.service.nursing.TriageService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/nursing/TriageResponse.java:[34,13] cannot find symbol
+  symbol:   class VitalSignsResponse
+  location: class com.hospital.system.dto.nursing.TriageResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/nursing/TriageResponse.java:[34,32] cannot find symbol
+  symbol:   class VitalSignsResponse
+  location: class com.hospital.system.dto.nursing.TriageResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/nursing/TriageResponse.java:[16,1] cannot find symbol
+  symbol:   class VitalSignsResponse
+  location: class com.hospital.system.dto.nursing.TriageResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/nursing/TriageResponse.java:[18,1] cannot find symbol
+  symbol:   class VitalSignsResponse
+  location: class com.hospital.system.dto.nursing.TriageResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/nursing/TriageResponse.java:[17,1] cannot find symbol
+  symbol:   class VitalSignsResponse
+  location: class com.hospital.system.dto.nursing.TriageResponse.TriageResponseBuilder
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[18,19] cannot find symbol
+  symbol:   class MedicalNoteRepository
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[19,19] cannot find symbol
+  symbol:   class MedicalNoteVersionRepository
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[20,19] cannot find symbol
+  symbol:   class PatientRepository
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[21,19] cannot find symbol
+  symbol:   class DoctorRepository
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[22,19] cannot find symbol
+  symbol:   class UserRepository
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[23,19] cannot find symbol
+  symbol:   class AppointmentRepository
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[26,50] cannot find symbol
+  symbol:   class MedicalNoteRequest
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[26,12] cannot find symbol
+  symbol:   class MedicalNoteResponse
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[50,12] cannot find symbol
+  symbol:   class MedicalNoteResponse
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[57,59] cannot find symbol
+  symbol:   class MedicalNoteUpdateRequest
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[57,12] cannot find symbol
+  symbol:   class MedicalNoteResponse
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[83,17] cannot find symbol
+  symbol:   class MedicalNoteResponse
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[92,12] cannot find symbol
+  symbol:   class MedicalNoteResponse
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[100,17] cannot find symbol
+  symbol:   class MedicalNoteVersionResponse
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[110,13] cannot find symbol
+  symbol:   class MedicalNoteResponse
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[146,13] cannot find symbol
+  symbol:   class MedicalNoteVersionResponse
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[15,1] cannot find symbol
+  symbol:   class MedicalNoteRepository
+  location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[3,1] package com.hospital.system.dto does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[6,1] package com.hospital.system.repository does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[25,33] cannot find symbol
+  symbol:   class PrescriptionRequest
+  location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[24,27] cannot find symbol
+  symbol:   class PrescriptionResponse
+  location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[32,27] cannot find symbol
+  symbol:   class PrescriptionResponse
+  location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[40,33] cannot find symbol
+  symbol:   class PrescriptionStatusUpdateRequest
+  location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[38,27] cannot find symbol
+  symbol:   class PrescriptionResponse
+  location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[46,27] cannot find symbol
+  symbol:   class PrescriptionPrintResponse
+  location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[22,19] cannot find symbol
+  symbol:   class PrescriptionRepository
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[23,19] cannot find symbol
+  symbol:   class PatientRepository
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[24,19] cannot find symbol
+  symbol:   class DoctorRepository
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[25,19] cannot find symbol
+  symbol:   class AppointmentRepository
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[28,52] cannot find symbol
+  symbol:   class PrescriptionRequest
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[28,12] cannot find symbol
+  symbol:   class PrescriptionResponse
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[64,12] cannot find symbol
+  symbol:   class PrescriptionResponse
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[71,67] cannot find symbol
+  symbol:   class PrescriptionStatusUpdateRequest
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[71,12] cannot find symbol
+  symbol:   class PrescriptionResponse
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[81,17] cannot find symbol
+  symbol:   class PrescriptionResponse
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[90,17] cannot find symbol
+  symbol:   class PrescriptionResponse
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[99,12] cannot find symbol
+  symbol:   class PrescriptionPrintResponse
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[133,13] cannot find symbol
+  symbol:   class PrescriptionResponse
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[160,13] cannot find symbol
+  symbol:   class PrescriptionItemResponse
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[19,1] cannot find symbol
+  symbol:   class PrescriptionRepository
+  location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[3,1] package com.hospital.system.dto does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[3,1] package com.hospital.system.dto does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[9,1] package com.hospital.system.repository does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[18,19] cannot find symbol
+  symbol:   class LabExamRepository
+  location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[19,19] cannot find symbol
+  symbol:   class LabResultRepository
+  location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[20,19] cannot find symbol
+  symbol:   class PatientRepository
+  location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[21,19] cannot find symbol
+  symbol:   class DoctorRepository
+  location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[22,19] cannot find symbol
+  symbol:   class AppointmentRepository
+  location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[23,19] cannot find symbol
+  symbol:   class UserRepository
+  location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[26,42] cannot find symbol
+  symbol:   class LabExamRequest
+  location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[26,12] cannot find symbol
+  symbol:   class LabExamResponse
+  location: class com.hospital.system.service.lab.LabExamService
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.858 s
+[INFO] Finished at: 2025-12-05T15:13:49-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project system: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[32,27] cannot find symbol
+[ERROR]   symbol:   class ClinicalHistoryResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[40,26] cannot find symbol
+[ERROR]   symbol:   class ClinicalHistoryRequest
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[38,27] cannot find symbol
+[ERROR]   symbol:   class ClinicalHistoryResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[46,32] cannot find symbol
+[ERROR]   symbol:   class PatientResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[57,33] cannot find symbol
+[ERROR]   symbol:   class AllergyRequest
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[55,27] cannot find symbol
+[ERROR]   symbol:   class AllergyResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[63,32] cannot find symbol
+[ERROR]   symbol:   class AllergyResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[69,32] cannot find symbol
+[ERROR]   symbol:   class AllergyResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[80,33] cannot find symbol
+[ERROR]   symbol:   class AllergyRequest
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[77,27] cannot find symbol
+[ERROR]   symbol:   class AllergyResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[99,33] cannot find symbol
+[ERROR]   symbol:   class ChronicDiseaseRequest
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[97,27] cannot find symbol
+[ERROR]   symbol:   class ChronicDiseaseResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[105,32] cannot find symbol
+[ERROR]   symbol:   class ChronicDiseaseResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[111,32] cannot find symbol
+[ERROR]   symbol:   class ChronicDiseaseResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[122,33] cannot find symbol
+[ERROR]   symbol:   class ChronicDiseaseRequest
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[119,27] cannot find symbol
+[ERROR]   symbol:   class ChronicDiseaseResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[128,27] cannot find symbol
+[ERROR]   symbol:   class ChronicDiseaseResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[150,33] cannot find symbol
+[ERROR]   symbol:   class ClinicalEvolutionRequest
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[148,27] cannot find symbol
+[ERROR]   symbol:   class ClinicalEvolutionResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[156,32] cannot find symbol
+[ERROR]   symbol:   class ClinicalEvolutionResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[162,27] cannot find symbol
+[ERROR]   symbol:   class ClinicalEvolutionResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[173,33] cannot find symbol
+[ERROR]   symbol:   class ClinicalEvolutionRequest
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[170,27] cannot find symbol
+[ERROR]   symbol:   class ClinicalEvolutionResponse
+[ERROR]   location: class com.hospital.system.controller.clinical.ClinicalHistoryController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[19,19] cannot find symbol
+[ERROR]   symbol:   class ClinicalHistoryRepository
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[20,19] cannot find symbol
+[ERROR]   symbol:   class AllergyRepository
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[21,19] cannot find symbol
+[ERROR]   symbol:   class ChronicDiseaseRepository
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[22,19] cannot find symbol
+[ERROR]   symbol:   class ClinicalEvolutionRepository
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[23,19] cannot find symbol
+[ERROR]   symbol:   class PatientRepository
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[24,19] cannot find symbol
+[ERROR]   symbol:   class DoctorRepository
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[27,12] cannot find symbol
+[ERROR]   symbol:   class ClinicalHistoryResponse
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[37,74] cannot find symbol
+[ERROR]   symbol:   class ClinicalHistoryRequest
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[37,12] cannot find symbol
+[ERROR]   symbol:   class ClinicalHistoryResponse
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[56,17] cannot find symbol
+[ERROR]   symbol:   class PatientResponse
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[85,13] cannot find symbol
+[ERROR]   symbol:   class ClinicalHistoryResponse
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[126,13] cannot find symbol
+[ERROR]   symbol:   class AllergyResponse
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[137,13] cannot find symbol
+[ERROR]   symbol:   class ChronicDiseaseResponse
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[150,13] cannot find symbol
+[ERROR]   symbol:   class ClinicalEvolutionResponse
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[166,13] cannot find symbol
+[ERROR]   symbol:   class PatientResponse
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[16,1] cannot find symbol
+[ERROR]   symbol:   class ClinicalHistoryRepository
+[ERROR]   location: class com.hospital.system.service.clinical.ClinicalHistoryService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/clinical/ClinicalHistoryController.java:[3,1] package com.hospital.system.dto does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[3,1] package com.hospital.system.dto does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/clinical/ClinicalHistoryService.java:[5,1] package com.hospital.system.repository does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/nursing/TriageService.java:[31,19] cannot find symbol
+[ERROR]   symbol:   class VitalSignsService
+[ERROR]   location: class com.hospital.system.service.nursing.TriageService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/nursing/TriageService.java:[25,1] cannot find symbol
+[ERROR]   symbol:   class VitalSignsService
+[ERROR]   location: class com.hospital.system.service.nursing.TriageService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/nursing/TriageResponse.java:[34,13] cannot find symbol
+[ERROR]   symbol:   class VitalSignsResponse
+[ERROR]   location: class com.hospital.system.dto.nursing.TriageResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/nursing/TriageResponse.java:[34,32] cannot find symbol
+[ERROR]   symbol:   class VitalSignsResponse
+[ERROR]   location: class com.hospital.system.dto.nursing.TriageResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/nursing/TriageResponse.java:[16,1] cannot find symbol
+[ERROR]   symbol:   class VitalSignsResponse
+[ERROR]   location: class com.hospital.system.dto.nursing.TriageResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/nursing/TriageResponse.java:[18,1] cannot find symbol
+[ERROR]   symbol:   class VitalSignsResponse
+[ERROR]   location: class com.hospital.system.dto.nursing.TriageResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/nursing/TriageResponse.java:[17,1] cannot find symbol
+[ERROR]   symbol:   class VitalSignsResponse
+[ERROR]   location: class com.hospital.system.dto.nursing.TriageResponse.TriageResponseBuilder
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[18,19] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteRepository
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[19,19] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteVersionRepository
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[20,19] cannot find symbol
+[ERROR]   symbol:   class PatientRepository
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[21,19] cannot find symbol
+[ERROR]   symbol:   class DoctorRepository
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[22,19] cannot find symbol
+[ERROR]   symbol:   class UserRepository
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[23,19] cannot find symbol
+[ERROR]   symbol:   class AppointmentRepository
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[26,50] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteRequest
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[26,12] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteResponse
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[50,12] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteResponse
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[57,59] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteUpdateRequest
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[57,12] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteResponse
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[83,17] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteResponse
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[92,12] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteResponse
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[100,17] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteVersionResponse
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[110,13] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteResponse
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[146,13] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteVersionResponse
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[15,1] cannot find symbol
+[ERROR]   symbol:   class MedicalNoteRepository
+[ERROR]   location: class com.hospital.system.service.medical.MedicalNoteService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[3,1] package com.hospital.system.dto does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/MedicalNoteService.java:[6,1] package com.hospital.system.repository does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[25,33] cannot find symbol
+[ERROR]   symbol:   class PrescriptionRequest
+[ERROR]   location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[24,27] cannot find symbol
+[ERROR]   symbol:   class PrescriptionResponse
+[ERROR]   location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[32,27] cannot find symbol
+[ERROR]   symbol:   class PrescriptionResponse
+[ERROR]   location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[40,33] cannot find symbol
+[ERROR]   symbol:   class PrescriptionStatusUpdateRequest
+[ERROR]   location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[38,27] cannot find symbol
+[ERROR]   symbol:   class PrescriptionResponse
+[ERROR]   location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[46,27] cannot find symbol
+[ERROR]   symbol:   class PrescriptionPrintResponse
+[ERROR]   location: class com.hospital.system.controller.medical.PrescriptionController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[22,19] cannot find symbol
+[ERROR]   symbol:   class PrescriptionRepository
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[23,19] cannot find symbol
+[ERROR]   symbol:   class PatientRepository
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[24,19] cannot find symbol
+[ERROR]   symbol:   class DoctorRepository
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[25,19] cannot find symbol
+[ERROR]   symbol:   class AppointmentRepository
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[28,52] cannot find symbol
+[ERROR]   symbol:   class PrescriptionRequest
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[28,12] cannot find symbol
+[ERROR]   symbol:   class PrescriptionResponse
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[64,12] cannot find symbol
+[ERROR]   symbol:   class PrescriptionResponse
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[71,67] cannot find symbol
+[ERROR]   symbol:   class PrescriptionStatusUpdateRequest
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[71,12] cannot find symbol
+[ERROR]   symbol:   class PrescriptionResponse
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[81,17] cannot find symbol
+[ERROR]   symbol:   class PrescriptionResponse
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[90,17] cannot find symbol
+[ERROR]   symbol:   class PrescriptionResponse
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[99,12] cannot find symbol
+[ERROR]   symbol:   class PrescriptionPrintResponse
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[133,13] cannot find symbol
+[ERROR]   symbol:   class PrescriptionResponse
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[160,13] cannot find symbol
+[ERROR]   symbol:   class PrescriptionItemResponse
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[19,1] cannot find symbol
+[ERROR]   symbol:   class PrescriptionRepository
+[ERROR]   location: class com.hospital.system.service.medical.PrescriptionService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/medical/PrescriptionController.java:[3,1] package com.hospital.system.dto does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[3,1] package com.hospital.system.dto does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/medical/PrescriptionService.java:[9,1] package com.hospital.system.repository does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[18,19] cannot find symbol
+[ERROR]   symbol:   class LabExamRepository
+[ERROR]   location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[19,19] cannot find symbol
+[ERROR]   symbol:   class LabResultRepository
+[ERROR]   location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[20,19] cannot find symbol
+[ERROR]   symbol:   class PatientRepository
+[ERROR]   location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[21,19] cannot find symbol
+[ERROR]   symbol:   class DoctorRepository
+[ERROR]   location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[22,19] cannot find symbol
+[ERROR]   symbol:   class AppointmentRepository
+[ERROR]   location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[23,19] cannot find symbol
+[ERROR]   symbol:   class UserRepository
+[ERROR]   location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[26,42] cannot find symbol
+[ERROR]   symbol:   class LabExamRequest
+[ERROR]   location: class com.hospital.system.service.lab.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/lab/LabExamService.java:[26,12] cannot find symbol
+[ERROR]   symbol:   class LabExamResponse
+[ERROR]   location: class com.hospital.system.service.lab.LabExamService
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

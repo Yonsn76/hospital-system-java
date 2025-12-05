@@ -1,6 +1,6 @@
 package com.hospital.system.security;
 
-import com.hospital.system.model.User;
+import com.hospital.system.model.auth.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

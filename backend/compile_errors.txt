@@ -1,0 +1,574 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.hospital:system >-------------------------
+[INFO] Building hospital-system 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ system ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ system ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 191 source files with javac [debug release 17] to target\classes
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/TriageRepository.java:[26,18] deprecated item is not annotated with @Deprecated
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/core/Doctor.java:[26,13] cannot find symbol
+  symbol:   class User
+  location: class com.hospital.system.model.core.Doctor
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/core/Doctor.java:[33,18] cannot find symbol
+  symbol:   class Appointment
+  location: class com.hospital.system.model.core.Doctor
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/core/Patient.java:[38,18] cannot find symbol
+  symbol:   class Appointment
+  location: class com.hospital.system.model.core.Patient
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/core/Patient.java:[41,18] cannot find symbol
+  symbol:   class MedicalRecord
+  location: class com.hospital.system.model.core.Patient
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/clinical/MedicalRecord.java:[25,13] cannot find symbol
+  symbol:   class Patient
+  location: class com.hospital.system.model.clinical.MedicalRecord
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/clinical/MedicalRecord.java:[29,13] cannot find symbol
+  symbol:   class Doctor
+  location: class com.hospital.system.model.clinical.MedicalRecord
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/files/FileAccessLog.java:[31,13] cannot find symbol
+  symbol:   class AccessAction
+  location: class com.hospital.system.model.files.FileAccessLog
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/resource/Resource.java:[1,1] package com.hospital.system.model.resource.Resource clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/resource/ResourceType.java:[1,1] package com.hospital.system.model.resource.Resource clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/resource/ResourceType.java:[3,8] cannot find symbol
+  symbol:   class ResourceType
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/resource/ResourceStatus.java:[1,1] package com.hospital.system.model.resource.Resource clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/resource/ResourceStatus.java:[3,8] cannot find symbol
+  symbol:   class ResourceStatus
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/appointment/Appointment.java:[1,1] package com.hospital.system.model.appointment.Appointment clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/appointment/Appointment.java:[25,13] cannot find symbol
+  symbol:   class Patient
+  location: class com.hospital.system.model.appointment.Appointment.Appointment
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/appointment/Appointment.java:[29,13] cannot find symbol
+  symbol:   class Doctor
+  location: class com.hospital.system.model.appointment.Appointment.Appointment
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/appointment/AppointmentStatus.java:[1,1] package com.hospital.system.model.appointment.Appointment clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/appointment/AppointmentStatus.java:[3,8] cannot find symbol
+  symbol:   class AppointmentStatus
+  location: class com.hospital.system.model.appointment.Appointment
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/referral/Referral.java:[1,1] package com.hospital.system.model.referral.Referral clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/referral/ReferralUrgency.java:[1,1] package com.hospital.system.model.referral.Referral clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/referral/ReferralUrgency.java:[7,8] cannot find symbol
+  symbol:   class ReferralUrgency
+  location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/referral/ReferralStatus.java:[1,1] package com.hospital.system.model.referral.Referral clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/referral/ReferralStatus.java:[8,8] cannot find symbol
+  symbol:   class ReferralStatus
+  location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralStatusUpdateRequest.java:[3,51] cannot find symbol
+  symbol:   class ReferralStatus
+  location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralStatusUpdateRequest.java:[21,13] cannot find symbol
+  symbol:   class ReferralStatus
+  location: class com.hospital.system.dto.ReferralStatusUpdateRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/Bed.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/BedStatus.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/BedStatus.java:[7,8] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/LabExamService.java:[92,54] cannot find symbol
+  symbol:   class ExamStatus
+  location: class com.hospital.system.service.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/LabExamService.java:[156,43] cannot find symbol
+  symbol:   class LabExam
+  location: class com.hospital.system.service.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/LabExamService.java:[186,51] cannot find symbol
+  symbol:   class LabResult
+  location: class com.hospital.system.service.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/LabExamService.java:[4,1] package com.hospital.system.model does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralRequest.java:[3,51] cannot find symbol
+  symbol:   class ReferralUrgency
+  location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralRequest.java:[37,13] cannot find symbol
+  symbol:   class ReferralUrgency
+  location: class com.hospital.system.dto.ReferralRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/HospitalizationRepository.java:[4,65] cannot find symbol
+  symbol:   class HospitalizationStatus
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/HospitalizationRepository.java:[20,68] cannot find symbol
+  symbol:   class HospitalizationStatus
+  location: interface com.hospital.system.repository.HospitalizationRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/HospitalizationRepository.java:[22,89] cannot find symbol
+  symbol:   class HospitalizationStatus
+  location: interface com.hospital.system.repository.HospitalizationRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/HospitalizationRepository.java:[24,40] cannot find symbol
+  symbol:   class HospitalizationStatus
+  location: interface com.hospital.system.repository.HospitalizationRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ReportService.java:[4,1] package com.hospital.system.model does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceRequest.java:[3,51] cannot find symbol
+  symbol:   class ResourceStatus
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceRequest.java:[4,51] cannot find symbol
+  symbol:   class ResourceType
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceRequest.java:[16,13] cannot find symbol
+  symbol:   class ResourceType
+  location: class com.hospital.system.dto.ResourceRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceRequest.java:[17,13] cannot find symbol
+  symbol:   class ResourceStatus
+  location: class com.hospital.system.dto.ResourceRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ResourceRepository.java:[4,51] cannot find symbol
+  symbol:   class ResourceType
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ResourceRepository.java:[12,31] cannot find symbol
+  symbol:   class ResourceType
+  location: interface com.hospital.system.repository.ResourceRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/BedTransfer.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/ResourceController.java:[5,51] cannot find symbol
+  symbol:   class ResourceStatus
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/ResourceController.java:[6,51] cannot find symbol
+  symbol:   class ResourceType
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ResourceService.java:[6,51] cannot find symbol
+  symbol:   class ResourceStatus
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ResourceService.java:[7,51] cannot find symbol
+  symbol:   class ResourceType
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceResponse.java:[3,51] cannot find symbol
+  symbol:   class ResourceStatus
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceResponse.java:[4,51] cannot find symbol
+  symbol:   class ResourceType
+  location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/ResourceController.java:[36,84] cannot find symbol
+  symbol:   class ResourceType
+  location: class com.hospital.system.controller.ResourceController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/ResourceController.java:[42,95] cannot find symbol
+  symbol:   class ResourceStatus
+  location: class com.hospital.system.controller.ResourceController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceResponse.java:[17,13] cannot find symbol
+  symbol:   class ResourceType
+  location: class com.hospital.system.dto.ResourceResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceResponse.java:[18,13] cannot find symbol
+  symbol:   class ResourceStatus
+  location: class com.hospital.system.dto.ResourceResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ResourceService.java:[39,54] cannot find symbol
+  symbol:   class ResourceType
+  location: class com.hospital.system.service.ResourceService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ResourceService.java:[45,51] cannot find symbol
+  symbol:   class ResourceStatus
+  location: class com.hospital.system.service.ResourceService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/BedResponse.java:[3,65] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/BedResponse.java:[21,13] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.dto.BedResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/HospitalizationResponse.java:[3,65] cannot find symbol
+  symbol:   class DischargeType
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/HospitalizationResponse.java:[4,65] cannot find symbol
+  symbol:   class HospitalizationStatus
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/HospitalizationResponse.java:[28,13] cannot find symbol
+  symbol:   class DischargeType
+  location: class com.hospital.system.dto.HospitalizationResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/HospitalizationResponse.java:[29,13] cannot find symbol
+  symbol:   class HospitalizationStatus
+  location: class com.hospital.system.dto.HospitalizationResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ReferralRepository.java:[4,51] cannot find symbol
+  symbol:   class ReferralStatus
+  location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ReferralRepository.java:[5,51] cannot find symbol
+  symbol:   class ReferralUrgency
+  location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ReferralRepository.java:[31,90] cannot find symbol
+  symbol:   class ReferralStatus
+  location: interface com.hospital.system.repository.ReferralRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ReferralRepository.java:[41,33] cannot find symbol
+  symbol:   class ReferralStatus
+  location: interface com.hospital.system.repository.ReferralRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ReferralRepository.java:[46,34] cannot find symbol
+  symbol:   class ReferralUrgency
+  location: interface com.hospital.system.repository.ReferralRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ReferralService.java:[7,51] cannot find symbol
+  symbol:   class ReferralStatus
+  location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralResponse.java:[3,51] cannot find symbol
+  symbol:   class ReferralStatus
+  location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralResponse.java:[4,51] cannot find symbol
+  symbol:   class ReferralUrgency
+  location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralResponse.java:[28,13] cannot find symbol
+  symbol:   class ReferralUrgency
+  location: class com.hospital.system.dto.ReferralResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralResponse.java:[29,13] cannot find symbol
+  symbol:   class ReferralStatus
+  location: class com.hospital.system.dto.ReferralResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ReferralService.java:[205,43] cannot find symbol
+  symbol:   class ReferralStatus
+  location: class com.hospital.system.service.ReferralService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ReferralService.java:[205,73] cannot find symbol
+  symbol:   class ReferralStatus
+  location: class com.hospital.system.service.ReferralService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/DischargeType.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/DischargeType.java:[7,8] cannot find symbol
+  symbol:   class DischargeType
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/Hospitalization.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/HospitalizationStatus.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/HospitalizationStatus.java:[7,8] cannot find symbol
+  symbol:   class HospitalizationStatus
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/DischargeRequest.java:[3,65] cannot find symbol
+  symbol:   class DischargeType
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/DischargeRequest.java:[21,13] cannot find symbol
+  symbol:   class DischargeType
+  location: class com.hospital.system.dto.DischargeRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/HospitalizationController.java:[4,65] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[5,65] cannot find symbol
+  symbol:   class Bed
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[6,65] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/BedRequest.java:[3,65] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/HospitalizationController.java:[173,76] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.controller.HospitalizationController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/HospitalizationController.java:[195,27] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.controller.HospitalizationController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/BedRequest.java:[26,13] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.dto.BedRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/BedRepository.java:[3,65] cannot find symbol
+  symbol:   class Bed
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/BedRepository.java:[4,65] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/BedRepository.java:[16,54] cannot find symbol
+  symbol: class Bed
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[77,46] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[85,49] cannot find symbol
+  symbol:   class BedStatus
+  location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[131,12] cannot find symbol
+  symbol:   class Bed
+  location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[140,24] cannot find symbol
+  symbol:   class Bed
+  location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[140,12] cannot find symbol
+  symbol:   class Bed
+  location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[144,38] cannot find symbol
+  symbol:   class Bed
+  location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/BedRepository.java:[18,28] cannot find symbol
+  symbol:   class BedStatus
+  location: interface com.hospital.system.repository.BedRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/BedRepository.java:[18,10] cannot find symbol
+  symbol:   class Bed
+  location: interface com.hospital.system.repository.BedRepository
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.616 s
+[INFO] Finished at: 2025-12-05T14:28:17-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project system: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/core/Doctor.java:[26,13] cannot find symbol
+[ERROR]   symbol:   class User
+[ERROR]   location: class com.hospital.system.model.core.Doctor
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/core/Doctor.java:[33,18] cannot find symbol
+[ERROR]   symbol:   class Appointment
+[ERROR]   location: class com.hospital.system.model.core.Doctor
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/core/Patient.java:[38,18] cannot find symbol
+[ERROR]   symbol:   class Appointment
+[ERROR]   location: class com.hospital.system.model.core.Patient
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/core/Patient.java:[41,18] cannot find symbol
+[ERROR]   symbol:   class MedicalRecord
+[ERROR]   location: class com.hospital.system.model.core.Patient
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/clinical/MedicalRecord.java:[25,13] cannot find symbol
+[ERROR]   symbol:   class Patient
+[ERROR]   location: class com.hospital.system.model.clinical.MedicalRecord
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/clinical/MedicalRecord.java:[29,13] cannot find symbol
+[ERROR]   symbol:   class Doctor
+[ERROR]   location: class com.hospital.system.model.clinical.MedicalRecord
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/files/FileAccessLog.java:[31,13] cannot find symbol
+[ERROR]   symbol:   class AccessAction
+[ERROR]   location: class com.hospital.system.model.files.FileAccessLog
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/resource/Resource.java:[1,1] package com.hospital.system.model.resource.Resource clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/resource/ResourceType.java:[1,1] package com.hospital.system.model.resource.Resource clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/resource/ResourceType.java:[3,8] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/resource/ResourceStatus.java:[1,1] package com.hospital.system.model.resource.Resource clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/resource/ResourceStatus.java:[3,8] cannot find symbol
+[ERROR]   symbol:   class ResourceStatus
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/appointment/Appointment.java:[1,1] package com.hospital.system.model.appointment.Appointment clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/appointment/Appointment.java:[25,13] cannot find symbol
+[ERROR]   symbol:   class Patient
+[ERROR]   location: class com.hospital.system.model.appointment.Appointment.Appointment
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/appointment/Appointment.java:[29,13] cannot find symbol
+[ERROR]   symbol:   class Doctor
+[ERROR]   location: class com.hospital.system.model.appointment.Appointment.Appointment
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/appointment/AppointmentStatus.java:[1,1] package com.hospital.system.model.appointment.Appointment clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/appointment/AppointmentStatus.java:[3,8] cannot find symbol
+[ERROR]   symbol:   class AppointmentStatus
+[ERROR]   location: class com.hospital.system.model.appointment.Appointment
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/referral/Referral.java:[1,1] package com.hospital.system.model.referral.Referral clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/referral/ReferralUrgency.java:[1,1] package com.hospital.system.model.referral.Referral clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/referral/ReferralUrgency.java:[7,8] cannot find symbol
+[ERROR]   symbol:   class ReferralUrgency
+[ERROR]   location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/referral/ReferralStatus.java:[1,1] package com.hospital.system.model.referral.Referral clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/referral/ReferralStatus.java:[8,8] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralStatusUpdateRequest.java:[3,51] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralStatusUpdateRequest.java:[21,13] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: class com.hospital.system.dto.ReferralStatusUpdateRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/Bed.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/BedStatus.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/BedStatus.java:[7,8] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/LabExamService.java:[92,54] cannot find symbol
+[ERROR]   symbol:   class ExamStatus
+[ERROR]   location: class com.hospital.system.service.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/LabExamService.java:[156,43] cannot find symbol
+[ERROR]   symbol:   class LabExam
+[ERROR]   location: class com.hospital.system.service.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/LabExamService.java:[186,51] cannot find symbol
+[ERROR]   symbol:   class LabResult
+[ERROR]   location: class com.hospital.system.service.LabExamService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/LabExamService.java:[4,1] package com.hospital.system.model does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralRequest.java:[3,51] cannot find symbol
+[ERROR]   symbol:   class ReferralUrgency
+[ERROR]   location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralRequest.java:[37,13] cannot find symbol
+[ERROR]   symbol:   class ReferralUrgency
+[ERROR]   location: class com.hospital.system.dto.ReferralRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/HospitalizationRepository.java:[4,65] cannot find symbol
+[ERROR]   symbol:   class HospitalizationStatus
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/HospitalizationRepository.java:[20,68] cannot find symbol
+[ERROR]   symbol:   class HospitalizationStatus
+[ERROR]   location: interface com.hospital.system.repository.HospitalizationRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/HospitalizationRepository.java:[22,89] cannot find symbol
+[ERROR]   symbol:   class HospitalizationStatus
+[ERROR]   location: interface com.hospital.system.repository.HospitalizationRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/HospitalizationRepository.java:[24,40] cannot find symbol
+[ERROR]   symbol:   class HospitalizationStatus
+[ERROR]   location: interface com.hospital.system.repository.HospitalizationRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ReportService.java:[4,1] package com.hospital.system.model does not exist
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceRequest.java:[3,51] cannot find symbol
+[ERROR]   symbol:   class ResourceStatus
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceRequest.java:[4,51] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceRequest.java:[16,13] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: class com.hospital.system.dto.ResourceRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceRequest.java:[17,13] cannot find symbol
+[ERROR]   symbol:   class ResourceStatus
+[ERROR]   location: class com.hospital.system.dto.ResourceRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ResourceRepository.java:[4,51] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ResourceRepository.java:[12,31] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: interface com.hospital.system.repository.ResourceRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/BedTransfer.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/ResourceController.java:[5,51] cannot find symbol
+[ERROR]   symbol:   class ResourceStatus
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/ResourceController.java:[6,51] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ResourceService.java:[6,51] cannot find symbol
+[ERROR]   symbol:   class ResourceStatus
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ResourceService.java:[7,51] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceResponse.java:[3,51] cannot find symbol
+[ERROR]   symbol:   class ResourceStatus
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceResponse.java:[4,51] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: class com.hospital.system.model.resource.Resource
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/ResourceController.java:[36,84] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: class com.hospital.system.controller.ResourceController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/ResourceController.java:[42,95] cannot find symbol
+[ERROR]   symbol:   class ResourceStatus
+[ERROR]   location: class com.hospital.system.controller.ResourceController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceResponse.java:[17,13] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: class com.hospital.system.dto.ResourceResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ResourceResponse.java:[18,13] cannot find symbol
+[ERROR]   symbol:   class ResourceStatus
+[ERROR]   location: class com.hospital.system.dto.ResourceResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ResourceService.java:[39,54] cannot find symbol
+[ERROR]   symbol:   class ResourceType
+[ERROR]   location: class com.hospital.system.service.ResourceService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ResourceService.java:[45,51] cannot find symbol
+[ERROR]   symbol:   class ResourceStatus
+[ERROR]   location: class com.hospital.system.service.ResourceService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/BedResponse.java:[3,65] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/BedResponse.java:[21,13] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.dto.BedResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/HospitalizationResponse.java:[3,65] cannot find symbol
+[ERROR]   symbol:   class DischargeType
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/HospitalizationResponse.java:[4,65] cannot find symbol
+[ERROR]   symbol:   class HospitalizationStatus
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/HospitalizationResponse.java:[28,13] cannot find symbol
+[ERROR]   symbol:   class DischargeType
+[ERROR]   location: class com.hospital.system.dto.HospitalizationResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/HospitalizationResponse.java:[29,13] cannot find symbol
+[ERROR]   symbol:   class HospitalizationStatus
+[ERROR]   location: class com.hospital.system.dto.HospitalizationResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ReferralRepository.java:[4,51] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ReferralRepository.java:[5,51] cannot find symbol
+[ERROR]   symbol:   class ReferralUrgency
+[ERROR]   location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ReferralRepository.java:[31,90] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: interface com.hospital.system.repository.ReferralRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ReferralRepository.java:[41,33] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: interface com.hospital.system.repository.ReferralRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/ReferralRepository.java:[46,34] cannot find symbol
+[ERROR]   symbol:   class ReferralUrgency
+[ERROR]   location: interface com.hospital.system.repository.ReferralRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ReferralService.java:[7,51] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralResponse.java:[3,51] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralResponse.java:[4,51] cannot find symbol
+[ERROR]   symbol:   class ReferralUrgency
+[ERROR]   location: class com.hospital.system.model.referral.Referral
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralResponse.java:[28,13] cannot find symbol
+[ERROR]   symbol:   class ReferralUrgency
+[ERROR]   location: class com.hospital.system.dto.ReferralResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/ReferralResponse.java:[29,13] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: class com.hospital.system.dto.ReferralResponse
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ReferralService.java:[205,43] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: class com.hospital.system.service.ReferralService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/ReferralService.java:[205,73] cannot find symbol
+[ERROR]   symbol:   class ReferralStatus
+[ERROR]   location: class com.hospital.system.service.ReferralService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/DischargeType.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/DischargeType.java:[7,8] cannot find symbol
+[ERROR]   symbol:   class DischargeType
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/Hospitalization.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/HospitalizationStatus.java:[1,1] package com.hospital.system.model.hospitalization.Hospitalization clashes with class of same name
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/model/hospitalization/HospitalizationStatus.java:[7,8] cannot find symbol
+[ERROR]   symbol:   class HospitalizationStatus
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/DischargeRequest.java:[3,65] cannot find symbol
+[ERROR]   symbol:   class DischargeType
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/DischargeRequest.java:[21,13] cannot find symbol
+[ERROR]   symbol:   class DischargeType
+[ERROR]   location: class com.hospital.system.dto.DischargeRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/HospitalizationController.java:[4,65] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[5,65] cannot find symbol
+[ERROR]   symbol:   class Bed
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[6,65] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/BedRequest.java:[3,65] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/HospitalizationController.java:[173,76] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.controller.HospitalizationController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/controller/HospitalizationController.java:[195,27] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.controller.HospitalizationController
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/dto/BedRequest.java:[26,13] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.dto.BedRequest
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/BedRepository.java:[3,65] cannot find symbol
+[ERROR]   symbol:   class Bed
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/BedRepository.java:[4,65] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.model.hospitalization.Hospitalization
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/BedRepository.java:[16,54] cannot find symbol
+[ERROR]   symbol: class Bed
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[77,46] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[85,49] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[131,12] cannot find symbol
+[ERROR]   symbol:   class Bed
+[ERROR]   location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[140,24] cannot find symbol
+[ERROR]   symbol:   class Bed
+[ERROR]   location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[140,12] cannot find symbol
+[ERROR]   symbol:   class Bed
+[ERROR]   location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/service/BedService.java:[144,38] cannot find symbol
+[ERROR]   symbol:   class Bed
+[ERROR]   location: class com.hospital.system.service.BedService
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/BedRepository.java:[18,28] cannot find symbol
+[ERROR]   symbol:   class BedStatus
+[ERROR]   location: interface com.hospital.system.repository.BedRepository
+[ERROR] /C:/Users/Yonsn/Desktop/DevJourney/hospital-system-java/backend/src/main/java/com/hospital/system/repository/BedRepository.java:[18,10] cannot find symbol
+[ERROR]   symbol:   class Bed
+[ERROR]   location: interface com.hospital.system.repository.BedRepository
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

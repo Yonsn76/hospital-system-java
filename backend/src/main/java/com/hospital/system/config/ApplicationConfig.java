@@ -1,7 +1,6 @@
 package com.hospital.system.config;
 
-import com.hospital.system.repository.UserRepository;
-import com.hospital.system.service.CustomUserDetailsService;
+import com.hospital.system.service.auth.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
